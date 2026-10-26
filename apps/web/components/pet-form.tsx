@@ -7,7 +7,7 @@ import { useEffect, useRef, useState, type DragEvent } from "react";
 import { useForm, useWatch, type FieldErrors } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { ArrowLeft, ArrowRight, Camera, Check, ChevronDown, ChevronUp, Crop, Heart, ImagePlus, Info, LoaderCircle, MapPin, PawPrint, ShieldCheck, Sparkles, UploadCloud, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Camera, Check, ChevronDown, ChevronUp, Crop, Heart, ImagePlus, Info, LoaderCircle, MapPin, PawPrint, Plus, ShieldCheck, Sparkles, UploadCloud, X } from "lucide-react";
 import { PetPhotoEditor } from "@/components/pet-photo-editor";
 import { ResponsibleCareNotice } from "@/components/responsible-care-notice";
 import { preparePetPhoto, uploadPetPhotos, type PetPhotoUpload } from "@/lib/pet-media";
@@ -23,7 +23,7 @@ const petSchema = z.object({
   birthDate: z.string().optional().refine((value) => !value || (/^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value && value <= new Date().toISOString().slice(0, 10)), "Informe uma data válida que não esteja no futuro."),
   bio: z.string().max(700, "Use até 700 caracteres.").optional(),
   intent: z.enum(["FRIENDSHIP", "RESPONSIBLE_BREEDING", "ADOPTION"]),
-  temperament: z.array(z.string()).max(8),
+  temperament: z.array(z.string()).max(8, "Escolha até 8 características."),
   preferences: z.array(z.string()).max(12),
   isPublic: z.boolean(),
 }).superRefine((values, context) => {
@@ -32,7 +32,7 @@ const petSchema = z.object({
 
 type PetFormValues = z.infer<typeof petSchema>;
 type LocalPhoto = { file: File; url: string };
-const traits = ["Brincalhão", "Calmo", "Sociável", "Curioso", "Carinhoso", "Cheio de energia"];
+const traits = ["Brincalhão", "Calmo", "Sociável", "Curioso", "Carinhoso", "Cheio de energia", "Afetuoso", "Independente", "Tímido", "Reservado", "Confiante", "Protetor", "Medroso", "Aventureiro", "Dócil", "Comunicativo", "Silencioso", "Adaptável", "Teimoso", "Inteligente", "Observador", "Ansioso", "Carente", "Territorial", "Paciente", "Gentil", "Agitado", "Desconfiado", "Extrovertido", "Sensível"];
 const api = apiBaseUrl;
 const draftKey = "matchanimal:new-pet:draft:v1";
 const steps = ["Informações", "Fotos", "Personalidade", "Publicação"];
@@ -45,6 +45,8 @@ function FieldError({ name, errors }: { name: keyof PetFormValues; errors: Field
 export function PetForm() {
   const [notice, setNotice] = useState("");
   const [error, setError] = useState("");
+  const [customTrait, setCustomTrait] = useState("");
+  const [traitMessage, setTraitMessage] = useState("");
   const [step, setStep] = useState(0);
   const [createdName, setCreatedName] = useState("");
   const [photos, setPhotos] = useState<LocalPhoto[]>([]);
@@ -66,6 +68,17 @@ export function PetForm() {
   const temperament = values.temperament ?? [];
   const errors = form.formState.errors;
   const busy = preparing || form.formState.isSubmitting;
+
+  function addCustomTrait() {
+    const trait = customTrait.trim().replace(/\s+/g, " ");
+    if (!trait) return;
+    if (trait.length > 30) { setTraitMessage("Use até 30 caracteres para cada característica."); return; }
+    if (temperament.length >= 8) { setTraitMessage("Você pode escolher até 8 características."); return; }
+    if (temperament.some((item) => item.toLocaleLowerCase("pt-BR") === trait.toLocaleLowerCase("pt-BR"))) { setTraitMessage("Essa característica já foi adicionada."); return; }
+    form.setValue("temperament", [...temperament, trait], { shouldDirty: true, shouldValidate: true });
+    setCustomTrait("");
+    setTraitMessage(`${trait} adicionada.`);
+  }
 
   useEffect(() => {
     try {
@@ -178,7 +191,7 @@ export function PetForm() {
         <div className="photo-tip"><ShieldCheck size={18} aria-hidden="true" /><p>As imagens são otimizadas antes do envio. A capa muda ao reorganizar as fotos; o perfil só aparece na descoberta se você ativar a visibilidade.</p></div>
       </section>}
 
-      {step === 2 && <section className="form-section"><div className="form-section-heading"><span>03</span><div><h2 ref={sectionHeading} tabIndex={-1}>Personalidade e objetivo</h2><p>Conte o que faz seu pet ser único e que tipo de conexão procuram.</p></div></div><fieldset className="pet-trait-group"><legend>Como é a personalidade dele?</legend><div className="trait-options">{traits.map((trait) => <label key={trait} className={`trait-option ${temperament.includes(trait) ? "trait-selected" : ""}`}><input type="checkbox" checked={temperament.includes(trait)} onChange={(event) => form.setValue("temperament", event.target.checked ? [...temperament, trait] : temperament.filter((item) => item !== trait), { shouldDirty: true })} />{temperament.includes(trait) && <Check size={15} aria-hidden="true" />} {trait}</label>)}</div></fieldset><label className="app-field full bio-field" htmlFor="pet-bio">Um pouquinho sobre {values.name || "seu pet"} <span>{values.bio?.length ?? 0}/700</span><textarea rows={4} maxLength={700} placeholder="O que ele ama fazer? Como é a personalidade dele?" {...fieldAttributes("bio")} {...form.register("bio")} /><FieldError name="bio" errors={errors} /></label><fieldset className="pet-intent-group"><legend>O que vocês procuram?</legend><div className="intent-options">{[{ value: "FRIENDSHIP", title: "Amizade", text: "Passeios, brincadeiras e socialização.", icon: <Heart size={21} aria-hidden="true" /> }, { value: "RESPONSIBLE_BREEDING", title: "Relacionamento", text: "Apresentação responsável entre tutores.", icon: <ShieldCheck size={21} aria-hidden="true" /> }, { value: "ADOPTION", title: "Adoção", text: "Encontrar uma família para um pet.", icon: <PawPrint size={21} aria-hidden="true" /> }].map((option) => <label key={option.value} className={`intent-card ${intent === option.value ? "intent-selected" : ""}`}><input type="radio" value={option.value} {...form.register("intent")} /><span className="intent-icon">{option.icon}</span><span><strong>{option.title}</strong><small>{option.text}</small></span><i aria-hidden="true">{intent === option.value && <Check size={16} />}</i></label>)}</div></fieldset>{intent === "RESPONSIBLE_BREEDING" && <ResponsibleCareNotice compact title="Relacionamento com responsabilidade" />}</section>}
+      {step === 2 && <section className="form-section"><div className="form-section-heading"><span>03</span><div><h2 ref={sectionHeading} tabIndex={-1}>Personalidade e objetivo</h2><p>Conte o que faz seu pet ser único e que tipo de conexão procuram.</p></div></div><fieldset className="pet-trait-group"><legend>Como é a personalidade dele?</legend><p className="pet-trait-hint">Escolha até 8 opções ou escreva uma característica própria. Cada animal tem seu jeito.</p><div className="trait-options">{traits.map((trait) => { const selected = temperament.includes(trait); return <label key={trait} className={`trait-option ${selected ? "trait-selected" : ""}`}><input type="checkbox" checked={selected} disabled={!selected && temperament.length >= 8} onChange={(event) => form.setValue("temperament", event.target.checked ? [...temperament, trait] : temperament.filter((item) => item !== trait), { shouldDirty: true, shouldValidate: true })} />{selected && <Check size={15} aria-hidden="true" />} {trait}</label>; })}{temperament.filter((trait) => !traits.includes(trait)).map((trait) => <label key={trait} className="trait-option trait-selected"><input type="checkbox" checked onChange={() => form.setValue("temperament", temperament.filter((item) => item !== trait), { shouldDirty: true, shouldValidate: true })} /><Check size={15} aria-hidden="true" />{trait}</label>)}</div><div className="pet-custom-trait"><label className="app-field" htmlFor="pet-custom-trait">Outra característica<input id="pet-custom-trait" value={customTrait} maxLength={30} placeholder="Ex.: gosta de água" onChange={(event) => { setCustomTrait(event.target.value); setTraitMessage(""); }} onKeyDown={(event) => { if (event.key === "Enter") { event.preventDefault(); addCustomTrait(); } }} /></label><button type="button" className="pet-add-trait" onClick={addCustomTrait} disabled={!customTrait.trim() || temperament.length >= 8}><Plus size={16} aria-hidden="true" /> Adicionar</button></div><p className="pet-trait-counter" aria-live="polite">{traitMessage || `${temperament.length} de 8 características selecionadas`}</p></fieldset><label className="app-field full bio-field" htmlFor="pet-bio">Um pouquinho sobre {values.name || "seu pet"} <span>{values.bio?.length ?? 0}/700</span><textarea rows={4} maxLength={700} placeholder="O que ele ama fazer? Como é a personalidade dele?" {...fieldAttributes("bio")} {...form.register("bio")} /><FieldError name="bio" errors={errors} /></label><fieldset className="pet-intent-group"><legend>O que vocês procuram?</legend><div className="intent-options">{[{ value: "FRIENDSHIP", title: "Amizade", text: "Passeios, brincadeiras e socialização.", icon: <Heart size={21} aria-hidden="true" /> }, { value: "RESPONSIBLE_BREEDING", title: "Relacionamento", text: "Apresentação responsável entre tutores.", icon: <ShieldCheck size={21} aria-hidden="true" /> }, { value: "ADOPTION", title: "Adoção", text: "Encontrar uma família para um pet.", icon: <PawPrint size={21} aria-hidden="true" /> }].map((option) => <label key={option.value} className={`intent-card ${intent === option.value ? "intent-selected" : ""}`}><input type="radio" value={option.value} {...form.register("intent")} /><span className="intent-icon">{option.icon}</span><span><strong>{option.title}</strong><small>{option.text}</small></span><i aria-hidden="true">{intent === option.value && <Check size={16} />}</i></label>)}</div></fieldset>{intent === "RESPONSIBLE_BREEDING" && <ResponsibleCareNotice compact title="Relacionamento com responsabilidade" />}</section>}
 
       {step === 3 && <section className="form-section"><div className="form-section-heading"><span>04</span><div><h2 ref={sectionHeading} tabIndex={-1}>Revise e crie o perfil</h2><p>Confira a apresentação. Você poderá ajustar as fotos e a visibilidade depois.</p></div></div><div className="pet-review-card"><div className="pet-review-photo" style={photo ? { backgroundImage: `url(${photo})` } : undefined}>{!photo && <PawPrint size={30} aria-hidden="true" />}</div><div><span className="preview-kicker">PERFIL DO ANIMAL</span><h3>{values.name || "Nome do pet"}</h3><p>{values.breed || (values.species === "DOG" ? "Cão" : values.species === "CAT" ? "Gato" : values.speciesOther || "Animal")}</p><div className="preview-tags">{temperament.slice(0, 3).map((tag) => <span key={tag}>{tag}</span>)}{!temperament.length && <span>Personalidade a completar</span>}</div></div></div><label className="visibility-toggle"><input type="checkbox" {...form.register("isPublic")} /><span className="toggle-ui" aria-hidden="true" /><span><strong>Deixar o perfil visível na descoberta</strong><small>Mostraremos a cidade aproximada, nunca o endereço da sua casa.</small></span></label><div className="photo-tip"><ShieldCheck size={18} aria-hidden="true" /><p>Você controla a visibilidade. Informações de saúde e comportamento não são verificadas automaticamente.</p></div></section>}
       </fieldset>

@@ -714,6 +714,66 @@
     margin-bottom: 24px
 }
 
+.pet-create-layout .pet-trait-hint {
+    margin: -4px 0 14px;
+    color: var(--ma-muted, #61736c);
+    font-size: 13px;
+    line-height: 1.6
+}
+
+.pet-create-layout .trait-option:has(input:disabled) {
+    opacity: .48;
+    cursor: not-allowed
+}
+
+.pet-create-layout .pet-custom-trait {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    max-width: 560px
+}
+
+.pet-create-layout .pet-custom-trait .app-field {
+    flex: 1;
+    margin: 0
+}
+
+.pet-create-layout .pet-add-trait {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 0 16px;
+    border: 1px solid var(--ma-line, #dce5de);
+    border-radius: 14px;
+    background: var(--ma-surface, #fffefa);
+    color: var(--ma-ink, #293f3b);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .18s ease, border-color .18s ease, transform .18s ease
+}
+
+.pet-create-layout .pet-add-trait:hover:not(:disabled) {
+    border-color: var(--ma-accent, #b65240);
+    background: #fbf0e9;
+    transform: translateY(-1px)
+}
+
+.pet-create-layout .pet-add-trait:disabled {
+    opacity: .5;
+    cursor: not-allowed
+}
+
+.pet-create-layout .pet-trait-counter {
+    min-height: 20px;
+    margin: 8px 0 0;
+    color: var(--ma-muted, #61736c);
+    font-size: 12px
+}
+
 .pet-create-layout .trait-option {
     min-height: 44px;
     padding: 10px 15px;
