@@ -49,6 +49,9 @@ export function PetForm() {
   const [customTrait, setCustomTrait] = useState("");
   const [traitMessage, setTraitMessage] = useState("");
   const [step, setStep] = useState(0);
+  const [advancing, setAdvancing] = useState(false);
+  const stepRef = useRef(step);
+  const advanceLockRef = useRef(false);
   const [createdName, setCreatedName] = useState("");
   const [photos, setPhotos] = useState<LocalPhoto[]>([]);
   const photosRef = useRef<LocalPhoto[]>([]);
@@ -68,7 +71,11 @@ export function PetForm() {
   const { species, intent } = values;
   const temperament = values.temperament ?? [];
   const errors = form.formState.errors;
-  const busy = preparing || form.formState.isSubmitting || uploadProgress !== null;
+  const busy = preparing || advancing || form.formState.isSubmitting || uploadProgress !== null;
+
+  // Keep the lock through the React commit. A fast double tap must not advance
+  // multiple steps while the same button is still on screen.
+  stepRef.current = step;
 
   function addCustomTrait() {
     const trait = customTrait.trim().replace(/\s+/g, " ");
@@ -106,6 +113,8 @@ export function PetForm() {
   useEffect(() => {
     if (previousStep.current !== step) sectionHeading.current?.focus();
     previousStep.current = step;
+    advanceLockRef.current = false;
+    setAdvancing(false);
   }, [step]);
 
   async function addFiles(incoming: FileList | File[]) {
@@ -140,26 +149,39 @@ export function PetForm() {
   }
 
   async function nextStep() {
-    if (busy) return;
+    const currentStep = stepRef.current;
+    if (advanceLockRef.current || busy || currentStep >= steps.length - 1) return;
+    advanceLockRef.current = true;
+    setAdvancing(true);
+    let transitionQueued = false;
     setError(""); setNotice("");
-    const fields = stepFields[step] ?? [];
-    const valid = fields.length ? await form.trigger(fields, { shouldFocus: true }) : true;
-    if (!valid) { setError("Confira os campos desta etapa antes de continuar."); return; }
-    if (step === 1 && photos.length && !uploadedPhotos) {
-      setUploadProgress(0);
-      try {
+    try {
+      const fields = stepFields[currentStep] ?? [];
+      const valid = fields.length ? await form.trigger(fields, { shouldFocus: true }) : true;
+      if (!valid) { setError("Confira os campos desta etapa antes de continuar."); return; }
+      if (currentStep === 1 && photos.length && !uploadedPhotos) {
+        setUploadProgress(0);
         const uploaded = await uploadPetPhotos(photos.map((photo) => photo.file), setUploadProgress, api);
         setUploadedPhotos(uploaded);
         setNotice("Fotos enviadas ao servidor. Você pode continuar montando o perfil.");
-      } catch (failure) {
-        setError(failure instanceof Error ? failure.message : "Não foi possível enviar as fotos. Tente novamente.");
         setUploadProgress(null);
-        return;
       }
+      void petFeedback("tap");
+      transitionQueued = true;
+      setStep((current) => Math.min(current + 1, steps.length - 1));
+    } catch (failure) {
+      setError(failure instanceof Error ? failure.message : "Não foi possível avançar. Tente novamente.");
       setUploadProgress(null);
+      advanceLockRef.current = false;
+      setAdvancing(false);
+    } finally {
+      // Invalid forms and rejected uploads do not change `step`, so release the
+      // lock here. Successful transitions release it in the step effect above.
+      if (!transitionQueued) {
+        advanceLockRef.current = false;
+        setAdvancing(false);
+      }
     }
-    void petFeedback("tap");
-    setStep(step + 1);
   }
 
   function invalidSubmit(invalid: FieldErrors<PetFormValues>) {
@@ -169,6 +191,7 @@ export function PetForm() {
   }
 
   async function submit(submitted: PetFormValues) {
+    if (stepRef.current !== steps.length - 1) return;
     if (preparingRef.current) return;
     setError(""); setNotice("");
     try {
@@ -191,7 +214,7 @@ export function PetForm() {
 
   return <div className="pet-create-layout"><div className="pet-create-main"><Link href="/animais" className="back-link"><ArrowLeft size={18} aria-hidden="true" /> Meus animais</Link><div className="product-eyebrow"><span><PawPrint size={16} aria-hidden="true" /></span> UM PERFIL COM A CARA DELE</div><h1 className="product-h1">Vamos conhecer <em>seu companheiro.</em></h1><p className="product-lead">Quatro passos para apresentar seu pet. Seu rascunho é salvo neste aparelho; as fotos precisam ser selecionadas novamente se você sair.</p>
     <nav className="pet-stepper" aria-label="Etapas do cadastro">{steps.map((label, index) => <button type="button" key={label} className={`pet-step ${index === step ? "pet-step-active" : ""} ${index < step ? "pet-step-complete" : ""}`} onClick={() => { setError(""); setStep(index); }} disabled={index > step || busy} aria-current={index === step ? "step" : undefined}><span>{index < step ? <Check size={16} aria-hidden="true" /> : index + 1}</span><small>{label}</small></button>)}</nav>
-    <form className="product-form" onSubmit={(event) => { if (step < 3) { event.preventDefault(); void nextStep(); } else { void form.handleSubmit(submit, invalidSubmit)(event); } }} noValidate aria-busy={busy}>
+    <form className="product-form" onSubmit={(event) => { event.preventDefault(); if (stepRef.current < steps.length - 1) { void nextStep(); return; } void form.handleSubmit(submit, invalidSubmit)(event); }} noValidate aria-busy={busy}>
       <fieldset className="pet-form-fields" disabled={busy}>
       {step === 0 && <section className="form-section"><div className="form-section-heading"><span>01</span><div><h2 ref={sectionHeading} tabIndex={-1}>Informações básicas</h2><p>Comece pelo nome e pelas características principais.</p></div></div><div className="form-grid">
         <label className="app-field full" htmlFor="pet-name">Nome do pet<input placeholder="Como ele se chama?" maxLength={40} {...fieldAttributes("name")} {...form.register("name")} /><FieldError name="name" errors={errors} /></label>
