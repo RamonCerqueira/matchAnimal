@@ -22,7 +22,7 @@ const docs = {
     sections: [
       ["Quem pode criar uma conta?", "A experiência está sendo projetada para tutores adultos, organizações de proteção animal e profissionais do segmento pet. Os perfis publicados devem ter autorização do responsável pelo animal."],
       ["Como funcionam as conexões?", "Amizade e relacionamento começam com interesse mútuo entre tutores. Adoção segue uma candidatura analisada pelo responsável pelo animal, sem depender de curtidas mútuas."],
-      ["Reprodução responsável", "A pontuação de compatibilidade não é recomendação de reprodução. Qualquer apresentação desse tipo exige verificação de saúde e bem-estar, conversa entre responsáveis e revisão humana; a plataforma não substitui avaliação veterinária."],
+      ["Reprodução responsável", "A pontuação de compatibilidade não é recomendação de reprodução. O MatchAnimal não verifica documentos nem aprova reprodução. Os tutores devem conversar, procurar orientação veterinária e confirmar saúde, bem-estar e normas aplicáveis antes de qualquer decisão."],
       ["Conteúdo e segurança", "O produto está sendo preparado para oferecer denúncia, bloqueio e moderação de fotos e publicações. A interface dessas ferramentas e o processo de atendimento ainda não estão completos nesta etapa."],
       ["Versão de lançamento", "Antes de abrir o serviço ao público, serão publicados termos completos com regras de uso, responsabilidades, canais de suporte, encerramento de conta e tratamento de disputas, após revisão apropriada."],
     ],

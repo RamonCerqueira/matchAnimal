@@ -199,7 +199,7 @@ export class PetsService {
     if (breeding && fromPet.intent !== toPet.intent) throw new BadRequestException("Os dois perfis precisam buscar relacionamento responsável.");
 
     const limit = Number(process.env.SUPER_MATCH_DAILY_LIMIT ?? 3);
-    let like: { like: { id: string; status: "PENDING" | "MATCHED" | "PASSED"; isSuperMatch: boolean; createdAt: Date }; matched: boolean; match: { id: string; petAId: string; petBId: string; createdAt: Date } | null };
+    let like: { like: { id: string; status: "PENDING" | "MATCHED" | "PASSED"; isSuperMatch: boolean; createdAt: Date }; matched: boolean; mutualInterest?: boolean; responsibleBreeding?: boolean; match: { id: string; petAId: string; petBId: string; createdAt: Date } | null };
     for (let attempt = 0; ; attempt++) {
       try {
         like = await this.prisma.$transaction(async (tx) => {
@@ -221,11 +221,11 @@ export class PetsService {
         update: { status: "PENDING", isSuperMatch: superMatch || existing?.isSuperMatch || false, superMatchAt: superMatch ? existing?.superMatchAt ?? new Date() : existing?.superMatchAt },
         select: { id: true, status: true, isSuperMatch: true, createdAt: true },
       });
+      const reverse = await tx.petLike.findUnique({ where: { fromPetId_toPetId: { fromPetId: toPetId, toPetId: fromPetId } }, select: { id: true, status: true } });
       if (breeding) {
         if (toPet.owner.tutor?.notificationOptIn) await tx.notification.create({ data: { recipientId: toPet.ownerId, actorId: ownerId, type: superMatch ? "SUPER_MATCH" : "PET_LIKE", entityId: createdLike.id } });
-        return { like: createdLike, matched: false, match: null };
+        return { like: createdLike, matched: false, mutualInterest: reverse?.status === "PENDING", responsibleBreeding: true, match: null };
       }
-      const reverse = await tx.petLike.findUnique({ where: { fromPetId_toPetId: { fromPetId: toPetId, toPetId: fromPetId } }, select: { id: true, status: true } });
       if (!reverse || reverse.status !== "PENDING" || fromPet.ownerId === toPet.ownerId) {
         if (toPet.owner.tutor?.notificationOptIn) await tx.notification.create({ data: { recipientId: toPet.ownerId, actorId: ownerId, type: superMatch ? "SUPER_MATCH" : "PET_LIKE", entityId: createdLike.id } });
         return { like: createdLike, matched: false, match: null };
@@ -244,7 +244,7 @@ export class PetsService {
         if (!serializationFailure || attempt >= 2) throw error;
       }
     }
-    if (breeding) return { ...like, reviewRequired: true, message: "A conexão aguarda análise humana e verificações de saúde e bem-estar." };
+    if (breeding) return { ...like, message: "Interesse registrado sem Match automático. Consulte um médico-veterinário e confirme as condições de saúde e bem-estar antes de qualquer decisão." };
     if (like.matched && like.match) await this.chatGateway.publishMatch(like.match.id, [ownerId, toPet.ownerId]);
     return like;
   }
@@ -286,11 +286,12 @@ export class PetsService {
       },
     });
     return incoming
-      .filter(({ fromPet, toPet }) => !toPet.likesSent.some((like) => like.toPetId === fromPet.id && like.status === "PENDING"))
       .map(({ fromPet, toPet, ...interest }) => {
+        const isReciprocal = toPet.likesSent.some((like) => like.toPetId === fromPet.id && like.status === "PENDING");
         const { coverPhotoModeration, coverPhotoUrl, ...profile } = fromPet;
-        return { ...interest, fromPet: { ...profile, coverPhotoUrl: coverPhotoModeration === "APPROVED" ? coverPhotoUrl : null }, toPet: { id: toPet.id, name: toPet.name, isPublic: toPet.isPublic } };
-      });
+        return { ...interest, isReciprocal, fromPet: { ...profile, coverPhotoUrl: coverPhotoModeration === "APPROVED" ? coverPhotoUrl : null }, toPet: { id: toPet.id, name: toPet.name, isPublic: toPet.isPublic } };
+      })
+      .filter((interest) => !interest.isReciprocal || interest.fromPet.intent === "RESPONSIBLE_BREEDING");
   }
 
   async undoMatch(ownerId: string, matchId: string) {

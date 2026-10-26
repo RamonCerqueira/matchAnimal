@@ -29,6 +29,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog } from "@/components/ui/dialog";
 import { useDialogAccessibility } from "@/lib/use-dialog-accessibility";
 import { PetFriends } from "@/components/pet-friends";
+import { ResponsibleCareNotice } from "@/components/responsible-care-notice";
 import { SponsoredPlacement } from "@/components/sponsored-placement";
 import { petFeedback } from "@/lib/native-feedback";
 
@@ -186,6 +187,8 @@ export function ExploreFeed() {
   const [applicationSent, setApplicationSent] = useState(false);
   const [applicationError, setApplicationError] = useState("");
   const [notice, setNotice] = useState("");
+  const [careNotice, setCareNotice] = useState(false);
+  const [careMutualInterest, setCareMutualInterest] = useState(false);
   const [actionBusy, setActionBusy] = useState(false);
   const [preferencesOpen, setPreferencesOpen] = useState(false);
   const [optionsMenuOpen, setOptionsMenuOpen] = useState(false);
@@ -483,8 +486,10 @@ export function ExploreFeed() {
         setMatches((old) => [profile, ...old]);
         setMatchCelebration(profile);
         setNotice(`Match com ${profile.name}!`);
-      } else if (result.reviewRequired) {
-        setNotice("Interesse registrado para revisão humana. Ainda são necessárias verificações de saúde e bem-estar.");
+      } else if (result.responsibleBreeding || result.reviewRequired) {
+        setCareNotice(true);
+        setCareMutualInterest(Boolean(result.mutualInterest));
+        setNotice("");
       } else {
         setNotice(
           result.like?.isSuperMatch
@@ -593,7 +598,7 @@ export function ExploreFeed() {
           Espécie, objetivo, região aproximada, porte, idade e comportamento contribuem para o resultado. A pontuação não garante afinidade ou segurança.
         </p>
         <p>
-          Para reprodução, a pontuação não gera recomendação automática: são necessárias verificações de saúde, bem-estar e revisão humana.
+          Para reprodução, não existe pontuação nem Match automático. O MatchAnimal não verifica documentos ou aprova reprodução; consultem um médico-veterinário e confirmem saúde, bem-estar e normas aplicáveis.
         </p>
       </Dialog>
 
@@ -707,6 +712,10 @@ export function ExploreFeed() {
               </button>
             </div>
           )}
+
+          {careNotice && <ResponsibleCareNotice title={careMutualInterest ? "Interesse mútuo, com cuidado" : "Interesse registrado com cuidado"}>{careMutualInterest ? "Os dois tutores demonstraram interesse. Isso não cria Match nem recomenda reprodução. Antes de qualquer decisão, consultem um médico-veterinário, confirmem saúde e bem-estar e observem as normas aplicáveis." : "O tutor foi avisado do interesse. Isso não cria Match nem recomenda reprodução. Antes de qualquer decisão, consultem um médico-veterinário, confirmem saúde e bem-estar e observem as normas aplicáveis."}</ResponsibleCareNotice>}
+
+          {intent === "RESPONSIBLE_BREEDING" && <ResponsibleCareNotice compact title="Encontros responsáveis começam pela saúde" />}
 
           {loading ? (
             <div className="home-loading" role="status">
@@ -837,7 +846,7 @@ export function ExploreFeed() {
                     )}
                     {profile.intent === "RESPONSIBLE_BREEDING" && (
                       <span className="breeding-review-badge">
-                        <ShieldCheck size={12} /> Revisão humana obrigatória
+                        <ShieldCheck size={12} /> Sem Match automático
                       </span>
                     )}
                     <h2>
@@ -1023,7 +1032,7 @@ export function ExploreFeed() {
                     <div className="breeding-warning">
                       <ShieldCheck size={14} />
                       <span>
-                        Compatibilidade não é calculada para reprodução. Exige verificação independente de saúde e bem-estar.
+                        Compatibilidade não é calculada e o MatchAnimal não aprova reprodução. Consultem um médico-veterinário e confirmem saúde e bem-estar.
                       </span>
                     </div>
                   )}
