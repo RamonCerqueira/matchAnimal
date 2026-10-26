@@ -1,0 +1,945 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum AccountType {
+  TUTOR
+  ORGANIZATION
+  PROTECTOR
+  PROFESSIONAL
+}
+
+enum PetSpecies {
+  DOG
+  CAT
+  OTHER
+}
+
+enum PetSex {
+  FEMALE
+  MALE
+  UNKNOWN
+}
+
+enum PetSize {
+  SMALL
+  MEDIUM
+  LARGE
+  EXTRA_LARGE
+  UNKNOWN
+}
+
+enum ConnectionIntent {
+  FRIENDSHIP
+  RESPONSIBLE_BREEDING
+  ADOPTION
+}
+
+enum LikeStatus {
+  PENDING
+  MATCHED
+  PASSED
+}
+
+enum NotificationType {
+  LIKE
+  SUPER_MATCH
+  MATCH
+  MESSAGE
+  CONNECTION_UPDATE
+  FOLLOW
+}
+
+enum MatchStatus {
+  ACTIVE
+  UNMATCHED
+}
+
+enum ApplicationStatus {
+  SUBMITTED
+  IN_REVIEW
+  APPROVED
+  DECLINED
+  WITHDRAWN
+}
+
+enum VerificationStatus {
+  UNVERIFIED
+  SUBMITTED
+  VERIFIED
+  REJECTED
+}
+
+enum ModerationStatus {
+  PENDING
+  APPROVED
+  REMOVED
+}
+
+enum PostVisibility {
+  PUBLIC
+  FOLLOWERS
+  PRIVATE
+}
+
+enum PostKind {
+  MOMENT
+  ADOPTION_INFO
+  ACTIVITY
+  EDUCATIONAL
+  EVENT
+  LOST_FOUND
+}
+
+enum FollowStatus {
+  PENDING
+  ACCEPTED
+}
+
+enum GroupVisibility {
+  PUBLIC
+  PRIVATE
+}
+
+enum GroupRole {
+  MEMBER
+  MODERATOR
+  ADMIN
+}
+
+enum EventVisibility {
+  PUBLIC
+  PRIVATE
+}
+
+enum AttendanceStatus {
+  GOING
+  INTERESTED
+  WAITLIST
+}
+
+model User {
+  accountStatus String @default("ACTIVE")
+  suspendedUntil DateTime?
+  accessVersion Int @default(0)
+  lastSeenAt DateTime?
+  id                 String          @id @default(cuid())
+  email              String          @unique
+  passwordHash       String
+  type               AccountType     @default(TUTOR)
+  emailVerifiedAt    DateTime?
+  privacyConsentAt   DateTime?
+  privacyConsentVersion String?
+  termsAcceptedAt    DateTime?
+  termsVersion       String?
+  createdAt          DateTime        @default(now())
+  updatedAt          DateTime        @updatedAt
+  tutor              TutorProfile?
+  refreshSessions    RefreshSession[]
+  passwordResetTokens PasswordResetToken[]
+  pets               Pet[]
+  adoptionApplications AdoptionApplication[] @relation("ApplicationsByUser")
+  likesSent          PetLike[]       @relation("LikesSent")
+  likesReceived      PetLike[]       @relation("LikesReceived")
+  blocksMade         UserBlock[]     @relation("BlocksMade")
+  blocksReceived     UserBlock[]     @relation("BlocksReceived")
+  reportsMade        ContentReport[] @relation("ReportsMade")
+  posts              CommunityPost[]
+  postLikes          PostLike[]
+  postComments       PostComment[]
+  commentLikes       CommentLike[]
+  savedPosts         SavedPost[]
+  followingPets      PetFollower[] @relation("PetFollowersByUser")
+  followRequestsMade FollowRequest[] @relation("FollowRequestsMade")
+  followRequestsReceived FollowRequest[] @relation("FollowRequestsReceived")
+  stories            Story[]
+  storyViews         StoryView[]
+  groupsOwned        CommunityGroup[]
+  groupMemberships   GroupMember[]
+  groupPosts         GroupPost[]
+  eventsCreated      PetEvent[]
+  eventParticipations EventParticipant[]
+  notifications      Notification[] @relation("NotificationRecipient")
+  notificationsSent  Notification[] @relation("NotificationActor")
+  messagesSent       ChatMessage[]   @relation("MessagesSent")
+}
+
+model TutorProfile {
+  id                 String   @id @default(cuid())
+  userId             String   @unique
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  displayName        String
+  city               String?
+  state              String?  @db.VarChar(2)
+  latitude           Float?
+  longitude          Float?
+  searchCell         String?  @db.VarChar(12)
+  profilePhotoUrl    String?
+  bio                String?  @db.VarChar(500)
+  phone              String?  @db.VarChar(30)
+  matchRadiusKm      Int?     @default(50)
+  preferredSpecies   String?  @default("ALL")
+  notifyMessages     Boolean  @default(true)
+  notifyMatches      Boolean  @default(true)
+  notifyCommunity    Boolean  @default(true)
+  notifyEvents       Boolean  @default(true)
+  isPublic           Boolean  @default(false)
+  notificationOptIn  Boolean  @default(true)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  @@index([city, state])
+  @@index([searchCell])
+}
+
+model RefreshSession {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash   String   @unique
+  expiresAt   DateTime
+  revokedAt   DateTime?
+  createdAt   DateTime @default(now())
+
+  @@index([userId, expiresAt])
+}
+
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String   @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime @default(now())
+
+  @@index([userId, expiresAt])
+}
+
+model Pet {
+  id                        String          @id @default(cuid())
+  ownerId                   String
+  owner                     User            @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  name                      String
+  species                   PetSpecies
+  speciesOther              String?
+  breed                     String?
+  sex                       PetSex          @default(UNKNOWN)
+  size                      PetSize         @default(UNKNOWN)
+  birthDate                 DateTime?
+  bio                       String?         @db.VarChar(700)
+  intent                    ConnectionIntent @default(FRIENDSHIP)
+  coverPhotoUrl             String?
+  temperament               String[]
+  preferences               String[]
+  city                      String?
+  state                     String?         @db.VarChar(2)
+  searchCell                String?         @db.VarChar(12)
+  latitude                  Float?
+  longitude                 Float?
+  isPublic                  Boolean         @default(false)
+  isActive                  Boolean         @default(true)
+  healthChecklistComplete   Boolean         @default(false)
+  healthVerificationStatus  VerificationStatus @default(UNVERIFIED)
+  veterinarianReviewAt      DateTime?
+  coverPhotoModeration      ModerationStatus @default(PENDING)
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+  photos                    PetPhoto[]
+  likesSent                 PetLike[]       @relation("PetLikesSent")
+  likesReceived             PetLike[]       @relation("PetLikesReceived")
+  matchesAsFirst            PetMatch[]      @relation("MatchPetA")
+  matchesAsSecond           PetMatch[]      @relation("MatchPetB")
+  applications              AdoptionApplication[]
+  posts                     CommunityPost[]
+  followers                 PetFollower[]
+  followRequests            FollowRequest[]
+  stories                   Story[]
+
+  @@index([species, intent, isActive, isPublic])
+  @@index([ownerId, isActive])
+  @@index([searchCell, isPublic, isActive])
+}
+
+model PetPhoto {
+  id          String           @id @default(cuid())
+  petId       String
+  pet         Pet              @relation(fields: [petId], references: [id], onDelete: Cascade)
+  storageKey  String
+  altText     String?
+  sortOrder   Int              @default(0)
+  moderation ModerationStatus @default(PENDING)
+  createdAt   DateTime         @default(now())
+
+  @@index([petId, moderation, sortOrder])
+}
+
+model PetLike {
+  id           String     @id @default(cuid())
+  fromPetId    String
+  toPetId      String
+  fromOwnerId  String
+  toOwnerId    String
+  status       LikeStatus @default(PENDING)
+  isSuperMatch Boolean    @default(false)
+  superMatchAt DateTime?
+  createdAt    DateTime   @default(now())
+  fromPet      Pet        @relation("PetLikesSent", fields: [fromPetId], references: [id], onDelete: Cascade)
+  toPet        Pet        @relation("PetLikesReceived", fields: [toPetId], references: [id], onDelete: Cascade)
+  fromOwner    User       @relation("LikesSent", fields: [fromOwnerId], references: [id], onDelete: Cascade)
+  toOwner      User       @relation("LikesReceived", fields: [toOwnerId], references: [id], onDelete: Cascade)
+
+  @@unique([fromPetId, toPetId])
+  @@index([toPetId, status])
+  @@index([fromOwnerId, createdAt])
+}
+
+model PetMatch {
+  id        String   @id @default(cuid())
+  status    MatchStatus @default(ACTIVE)
+  petAId    String
+  petBId    String
+  createdAt DateTime @default(now())
+  petA      Pet      @relation("MatchPetA", fields: [petAId], references: [id], onDelete: Cascade)
+  petB      Pet      @relation("MatchPetB", fields: [petBId], references: [id], onDelete: Cascade)
+  thread    ChatThread?
+
+  @@unique([petAId, petBId])
+  @@index([petAId, createdAt])
+  @@index([petBId, createdAt])
+}
+
+model ChatThread {
+  id        String        @id @default(cuid())
+  matchId   String        @unique
+  match     PetMatch      @relation(fields: [matchId], references: [id], onDelete: Cascade)
+  messages  ChatMessage[]
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+}
+
+model ChatMessage {
+  id        String     @id @default(cuid())
+  threadId  String
+  senderId  String
+  idempotencyKey String?
+  body      String     @db.VarChar(4000)
+  createdAt DateTime   @default(now())
+  deliveredAt DateTime?
+  readAt    DateTime?
+  thread    ChatThread @relation(fields: [threadId], references: [id], onDelete: Cascade)
+  sender    User       @relation("MessagesSent", fields: [senderId], references: [id], onDelete: Cascade)
+
+  @@index([threadId, createdAt])
+  @@unique([senderId, idempotencyKey])
+}
+
+model Notification {
+  id          String           @id @default(cuid())
+  recipientId String
+  actorId     String?
+  type        NotificationType
+  entityId    String?
+  readAt      DateTime?
+  createdAt   DateTime         @default(now())
+  recipient   User             @relation("NotificationRecipient", fields: [recipientId], references: [id], onDelete: Cascade)
+  actor       User?            @relation("NotificationActor", fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([recipientId, readAt, createdAt])
+  @@index([type, entityId])
+}
+
+model AdoptionApplication {
+  id            String            @id @default(cuid())
+  petId         String
+  applicantId   String
+  status        ApplicationStatus @default(SUBMITTED)
+  message       String            @db.VarChar(1500)
+  livingDetails String?           @db.VarChar(1000)
+  reviewedAt    DateTime?
+  createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @updatedAt
+  pet           Pet               @relation(fields: [petId], references: [id], onDelete: Cascade)
+  applicant     User              @relation("ApplicationsByUser", fields: [applicantId], references: [id], onDelete: Cascade)
+
+  @@unique([petId, applicantId])
+  @@index([petId, status])
+  @@index([applicantId, createdAt])
+}
+
+model UserBlock {
+  id          String   @id @default(cuid())
+  blockerId   String
+  blockedId   String
+  createdAt   DateTime @default(now())
+  blocker     User     @relation("BlocksMade", fields: [blockerId], references: [id], onDelete: Cascade)
+  blocked     User     @relation("BlocksReceived", fields: [blockedId], references: [id], onDelete: Cascade)
+
+  @@unique([blockerId, blockedId])
+}
+
+model ContentReport {
+  priority String @default("NORMAL")
+  assigneeId String?
+  resolution String? @db.VarChar(2000)
+  resolvedAt DateTime?
+  id          String   @id @default(cuid())
+  reporterId  String
+  targetType  String
+  targetId    String
+  reason      String
+  details     String?  @db.VarChar(1000)
+  status      String   @default("OPEN")
+  createdAt   DateTime @default(now())
+  reporter    User     @relation("ReportsMade", fields: [reporterId], references: [id], onDelete: Cascade)
+
+  @@index([targetType, targetId, status])
+}
+
+model CommunityPost {
+  id          String           @id @default(cuid())
+  authorId    String
+  petId       String?
+  body        String           @db.VarChar(2000)
+  kind        PostKind         @default(MOMENT)
+  visibility  PostVisibility   @default(PUBLIC)
+  locationLabel String?        @db.VarChar(120)
+  moderation ModerationStatus @default(PENDING)
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+  author      User             @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  pet         Pet?             @relation(fields: [petId], references: [id], onDelete: SetNull)
+  media       PostMedia[]
+  likes       PostLike[]
+  comments    PostComment[]
+  saves       SavedPost[]
+  hashtags    PostHashtag[]
+
+  @@index([moderation, visibility, createdAt])
+  @@index([authorId, createdAt])
+  @@index([petId, createdAt])
+}
+
+model PostMedia {
+  id        String        @id @default(cuid())
+  postId    String
+  storageKey String
+  mediaType String        @db.VarChar(20)
+  mimeType  String        @db.VarChar(100)
+  sizeBytes Int
+  width     Int?
+  height    Int?
+  sortOrder Int           @default(0)
+  createdAt DateTime      @default(now())
+  post      CommunityPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@index([postId, sortOrder])
+}
+
+model PostLike {
+  id        String        @id @default(cuid())
+  postId    String
+  userId    String
+  createdAt DateTime      @default(now())
+  post      CommunityPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, userId])
+  @@index([userId, createdAt])
+}
+
+model PostComment {
+  id        String        @id @default(cuid())
+  postId    String
+  authorId  String
+  parentId  String?
+  body      String        @db.VarChar(1200)
+  moderation ModerationStatus @default(APPROVED)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  post      CommunityPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  author    User          @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  parent    PostComment?  @relation("CommentReplies", fields: [parentId], references: [id], onDelete: Cascade)
+  replies   PostComment[] @relation("CommentReplies")
+  likes     CommentLike[]
+
+  @@index([postId, createdAt])
+  @@index([parentId, createdAt])
+}
+
+model CommentLike {
+  id        String      @id @default(cuid())
+  commentId String
+  userId    String
+  createdAt DateTime    @default(now())
+  comment   PostComment @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  user      User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([commentId, userId])
+}
+
+model SavedPost {
+  id        String        @id @default(cuid())
+  postId    String
+  userId    String
+  createdAt DateTime      @default(now())
+  post      CommunityPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, userId])
+  @@index([userId, createdAt])
+}
+
+model PetFollower {
+  id          String   @id @default(cuid())
+  petId       String
+  followerId  String
+  createdAt   DateTime @default(now())
+  pet         Pet      @relation(fields: [petId], references: [id], onDelete: Cascade)
+  follower    User     @relation("PetFollowersByUser", fields: [followerId], references: [id], onDelete: Cascade)
+
+  @@unique([petId, followerId])
+  @@index([petId, createdAt])
+  @@index([followerId, createdAt])
+}
+
+model FollowRequest {
+  id          String       @id @default(cuid())
+  petId       String
+  requesterId String
+  status      FollowStatus @default(PENDING)
+  createdAt   DateTime     @default(now())
+  pet         Pet          @relation(fields: [petId], references: [id], onDelete: Cascade)
+  requester   User         @relation("FollowRequestsMade", fields: [requesterId], references: [id], onDelete: Cascade)
+  owner       User         @relation("FollowRequestsReceived", fields: [ownerId], references: [id], onDelete: Cascade)
+  ownerId     String
+
+  @@unique([petId, requesterId])
+  @@index([ownerId, status, createdAt])
+}
+
+model Story {
+  id        String   @id @default(cuid())
+  authorId  String
+  petId     String?
+  mediaKey  String
+  mediaType String   @db.VarChar(20)
+  caption   String?  @db.VarChar(300)
+  visibility PostVisibility @default(FOLLOWERS)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  pet       Pet?     @relation(fields: [petId], references: [id], onDelete: SetNull)
+  views     StoryView[]
+
+  @@index([expiresAt, visibility, createdAt])
+  @@index([authorId, expiresAt])
+}
+
+model StoryView {
+  id        String   @id @default(cuid())
+  storyId   String
+  viewerId  String
+  viewedAt  DateTime @default(now())
+  story     Story    @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  viewer    User     @relation(fields: [viewerId], references: [id], onDelete: Cascade)
+
+  @@unique([storyId, viewerId])
+  @@index([viewerId, viewedAt])
+}
+
+model Hashtag {
+  id    String        @id @default(cuid())
+  name  String        @unique @db.VarChar(60)
+  posts PostHashtag[]
+}
+
+model PostHashtag {
+  postId   String
+  hashtagId String
+  post     CommunityPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  hashtag  Hashtag       @relation(fields: [hashtagId], references: [id], onDelete: Cascade)
+
+  @@id([postId, hashtagId])
+  @@index([hashtagId, postId])
+}
+
+model CommunityGroup {
+  id          String          @id @default(cuid())
+  ownerId     String
+  name        String          @db.VarChar(100)
+  slug        String          @unique @db.VarChar(120)
+  description String          @db.VarChar(1000)
+  visibility  GroupVisibility @default(PUBLIC)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  owner       User            @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  members     GroupMember[]
+  posts       GroupPost[]
+
+  @@index([visibility, createdAt])
+}
+
+model GroupMember {
+  groupId   String
+  userId    String
+  role      GroupRole @default(MEMBER)
+  approved  Boolean   @default(false)
+  joinedAt  DateTime  @default(now())
+  group     CommunityGroup @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([groupId, userId])
+  @@index([userId, joinedAt])
+}
+
+model GroupPost {
+  id        String        @id @default(cuid())
+  groupId   String
+  authorId  String
+  body      String        @db.VarChar(2000)
+  createdAt DateTime      @default(now())
+  group     CommunityGroup @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  author    User          @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@index([groupId, createdAt])
+}
+
+model PetEvent {
+  id             String          @id @default(cuid())
+  organizerId    String
+  title          String          @db.VarChar(120)
+  description    String          @db.VarChar(2000)
+  startsAt       DateTime
+  endsAt         DateTime?
+  locationLabel  String          @db.VarChar(180)
+  latitude       Float?
+  longitude      Float?
+  coverImageKey  String?
+  capacity       Int?
+  rules          String?         @db.VarChar(1200)
+  visibility     EventVisibility @default(PUBLIC)
+  isCancelled    Boolean         @default(false)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  organizer      User            @relation(fields: [organizerId], references: [id], onDelete: Cascade)
+  participants   EventParticipant[]
+  partnerId      String?
+  partner        CommercialPartner? @relation(fields: [partnerId], references: [id], onDelete: SetNull)
+
+  @@index([visibility, startsAt])
+  @@index([organizerId, startsAt])
+  @@index([partnerId, startsAt])
+}
+
+model EventParticipant {
+  checkedInAt DateTime?
+  eventId  String
+  userId   String
+  status   AttendanceStatus @default(GOING)
+  joinedAt DateTime @default(now())
+  event    PetEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([eventId, userId])
+  @@index([userId, joinedAt])
+}
+
+enum CommercialPartnerCategory {
+  PET_SHOP
+  VETERINARY
+  GROOMING
+  ORGANIZATION
+  OTHER
+}
+
+enum CommercialPartnerStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum AdCampaignStatus {
+  DRAFT
+  PUBLISHED
+  PAUSED
+  ARCHIVED
+}
+
+enum AdPlacement {
+  HOME_BANNER
+  COMMUNITY_FEED
+  EXPLORE_CARD
+}
+
+enum AdMediaType {
+  IMAGE
+  VIDEO
+}
+
+enum CommercialInvoiceStatus {
+  PENDING
+  PAID
+  CANCELED
+  REFUNDED
+}
+
+enum CommercialPaymentMethod {
+  PIX
+  BANK_TRANSFER
+  CASH
+  OTHER
+  STRIPE
+}
+
+enum AdInteractionKind {
+  IMPRESSION
+  CLICK
+}
+
+model CommercialPartner {
+  legalName String? @db.VarChar(180)
+  taxId String? @db.VarChar(32)
+  whatsapp String? @db.VarChar(30)
+  billingContact String? @db.VarChar(100)
+  billingEmail String? @db.VarChar(254)
+  postalCode String? @db.VarChar(9)
+  street String? @db.VarChar(180)
+  addressNumber String? @db.VarChar(30)
+  complement String? @db.VarChar(100)
+  district String? @db.VarChar(100)
+  instagram String? @db.VarChar(30)
+  description String? @db.VarChar(2000)
+  commercialOwner String? @db.VarChar(100)
+  id           String                    @id @default(cuid())
+  businessName String                    @db.VarChar(160)
+  contactName  String                    @db.VarChar(100)
+  email        String                    @db.VarChar(254)
+  phone        String?                   @db.VarChar(30)
+  website      String?                   @db.VarChar(2000)
+  city         String?                   @db.VarChar(100)
+  state        String?                   @db.VarChar(2)
+  category     CommercialPartnerCategory @default(OTHER)
+  status       CommercialPartnerStatus   @default(ACTIVE)
+  notes        String?                   @db.VarChar(2000)
+  createdAt    DateTime                  @default(now())
+  updatedAt    DateTime                  @updatedAt
+  campaigns    AdCampaign[]
+  invoices     CommercialInvoice[]
+  assets       AdAsset[]
+  events       PetEvent[]
+
+  @@index([status, createdAt])
+  @@index([email])
+}
+
+model AdAsset {
+  id              String      @id @default(cuid())
+  partnerId       String?
+  filename        String      @db.VarChar(255)
+  storageKey      String      @unique @db.VarChar(500)
+  mimeType        String      @db.VarChar(100)
+  mediaType       AdMediaType
+  width           Int
+  height          Int
+  durationSeconds Float?
+  sizeBytes       Int
+  createdAt       DateTime    @default(now())
+  createdById     String
+  partner         CommercialPartner? @relation(fields: [partnerId], references: [id], onDelete: SetNull)
+  campaigns       AdCampaign[]
+
+  @@index([partnerId, createdAt])
+  @@index([createdAt])
+}
+
+model AdCampaign {
+  approvalStatus String @default("APPROVED")
+  approvalNote String? @db.VarChar(1000)
+  dailyFrequencyCap Int @default(3)
+  id             String           @id @default(cuid())
+  partnerId      String
+  assetId        String
+  name           String           @db.VarChar(160)
+  headline       String           @db.VarChar(100)
+  body           String?          @db.VarChar(400)
+  ctaLabel       String           @db.VarChar(40)
+  destinationUrl String           @db.VarChar(2000)
+  placement      AdPlacement
+  startsAt       DateTime
+  endsAt         DateTime
+  amountCents    Int              @default(0)
+  targetCity     String?          @db.VarChar(100)
+  targetState    String?          @db.VarChar(2)
+  status         AdCampaignStatus @default(DRAFT)
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  partner        CommercialPartner @relation(fields: [partnerId], references: [id], onDelete: Restrict)
+  asset          AdAsset           @relation(fields: [assetId], references: [id], onDelete: Restrict)
+  invoice        CommercialInvoice?
+  interactions   AdInteraction[]
+
+  @@index([status, placement, startsAt, endsAt])
+  @@index([partnerId, createdAt])
+  @@index([assetId])
+}
+
+model CommercialInvoice {
+  receivedCents Int @default(0)
+  refundedCents Int @default(0)
+  feeCents Int @default(0)
+  id                    String                  @id @default(cuid())
+  partnerId             String
+  campaignId            String?                 @unique
+  description           String                  @db.VarChar(250)
+  amountCents           Int
+  currency              String                  @default("BRL") @db.Char(3)
+  status                CommercialInvoiceStatus @default(PENDING)
+  dueAt                 DateTime
+  paidAt                DateTime?
+  method                CommercialPaymentMethod?
+  reference             String?                 @db.VarChar(250)
+  stripeCheckoutId      String?                 @unique
+  stripePaymentIntentId String?                 @unique
+  checkoutUrl           String?                 @db.VarChar(2000)
+  createdAt             DateTime                @default(now())
+  updatedAt             DateTime                @updatedAt
+  partner               CommercialPartner       @relation(fields: [partnerId], references: [id], onDelete: Restrict)
+  campaign              AdCampaign?             @relation(fields: [campaignId], references: [id], onDelete: Restrict)
+
+  @@index([status, dueAt])
+  @@index([partnerId, createdAt])
+  @@index([paidAt])
+}
+
+model AdInteraction {
+  id          String            @id @default(cuid())
+  campaignId  String
+  kind        AdInteractionKind
+  day         DateTime          @db.Date
+  visitorHash String            @db.VarChar(128)
+  createdAt   DateTime          @default(now())
+  campaign    AdCampaign        @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+
+  @@unique([campaignId, kind, day, visitorHash])
+  @@index([campaignId, day, kind])
+}
+
+model AdminAuditLog {
+  id         String   @id @default(cuid())
+  actorId    String
+  action     String   @db.VarChar(100)
+  targetType String   @db.VarChar(80)
+  targetId   String
+  metadata   Json?
+  createdAt  DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([targetType, targetId, createdAt])
+  @@index([actorId, createdAt])
+}
+
+model StripeWebhookEvent {
+  eventId     String   @id
+  type        String   @db.VarChar(100)
+  processedAt DateTime @default(now())
+}
+
+model AdminMembership {
+  userId String @id
+  role String
+  active Boolean @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model UserActivityDay {
+  userId String
+  day DateTime @db.Date
+  @@id([userId, day])
+  @@index([day])
+}
+model OperationCase {
+  id String @id @default(cuid())
+  kind String
+  title String @db.VarChar(160)
+  description String @db.VarChar(4000)
+  status String @default("OPEN")
+  priority String @default("NORMAL")
+  userId String?
+  partnerId String?
+  reportId String?
+  assigneeId String?
+  dueAt DateTime?
+  amountCents Int?
+  createdById String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  messages OperationMessage[]
+  @@index([kind, status, createdAt])
+  @@index([partnerId, createdAt])
+  @@index([userId, createdAt])
+  @@index([assigneeId, dueAt])
+}
+model OperationMessage {
+  id String @id @default(cuid())
+  caseId String
+  authorId String
+  body String @db.VarChar(4000)
+  internal Boolean @default(true)
+  createdAt DateTime @default(now())
+  case OperationCase @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  @@index([caseId, createdAt])
+}
+model OperationalDocument {
+  id String @id @default(cuid())
+  partnerId String?
+  invoiceId String?
+  eventId String?
+  kind String
+  filename String @db.VarChar(255)
+  storageKey String @unique
+  mimeType String
+  sizeBytes Int
+  uploadedById String
+  expiresAt DateTime?
+  createdAt DateTime @default(now())
+  @@index([partnerId, createdAt])
+  @@index([invoiceId])
+  @@index([eventId])
+}
+model CommercialPackage {
+  id String @id @default(cuid())
+  name String @db.VarChar(120)
+  description String @db.VarChar(1000)
+  placement AdPlacement
+  amountCents Int
+  durationDays Int
+  active Boolean @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model FinancialEntry {
+  id String @id @default(cuid())
+  invoiceId String
+  kind String
+  amountCents Int
+  feeCents Int @default(0)
+  method String
+  reference String @db.VarChar(250)
+  occurredAt DateTime
+  actorId String
+  createdAt DateTime @default(now())
+  @@index([invoiceId, createdAt])
+}
+model OperationalSettings {
+  id String @id @default("default")
+  renewalWarningDays Int @default(7)
+  supportSlaHours Int @default(48)
+  maxCampaignDays Int @default(365)
+  maxDailyAdFrequency Int @default(3)
+  updatedAt DateTime @updatedAt
+}

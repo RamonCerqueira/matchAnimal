@@ -1,0 +1,3234 @@
+{
+  "stage": "baseline",
+  "capturedAt": "2026-10-17T21:12:30.339Z",
+  "browser": "136.0.7103.93",
+  "widths": [
+    320,
+    375,
+    430,
+    768,
+    1024,
+    1280,
+    1440,
+    1920
+  ],
+  "authentication": "authenticated",
+  "readOnly": true,
+  "socketPolicy": "Socket connections blocked to prevent automatic read receipts",
+  "routes": [
+    {
+      "path": "/",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/"
+    },
+    {
+      "path": "/entrar",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/entrar/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/entrar/"
+    },
+    {
+      "path": "/cadastro",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/cadastro/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/cadastro/"
+    },
+    {
+      "path": "/recuperar-senha",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/recuperar-senha/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/recuperar-senha/"
+    },
+    {
+      "path": "/dashboard",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/dashboard/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/dashboard/"
+    },
+    {
+      "path": "/explorar",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/explorar/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/explorar/"
+    },
+    {
+      "path": "/animais",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/animais/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/animais/"
+    },
+    {
+      "path": "/animais/novo",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/animais/novo/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/animais/novo/"
+    },
+    {
+      "path": "/matches",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/matches/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/matches/"
+    },
+    {
+      "path": "/mensagens",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/mensagens/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/mensagens/"
+    },
+    {
+      "path": "/comunidade",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/comunidade/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/comunidade/"
+    },
+    {
+      "path": "/comunidade/explorar",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/comunidade/explorar/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/comunidade/explorar/"
+    },
+    {
+      "path": "/comunidade/publicacao",
+      "entityAvailable": false,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/comunidade/publicacao/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/comunidade/publicacao/"
+    },
+    {
+      "path": "/grupos",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/grupos/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/grupos/"
+    },
+    {
+      "path": "/grupos/detalhe",
+      "entityAvailable": false,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/grupos/detalhe/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/grupos/detalhe/"
+    },
+    {
+      "path": "/eventos",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/eventos/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/eventos/"
+    },
+    {
+      "path": "/adocoes",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/adocoes/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/adocoes/"
+    },
+    {
+      "path": "/notificacoes",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/notificacoes/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/notificacoes/"
+    },
+    {
+      "path": "/configuracoes",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/configuracoes/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/configuracoes/"
+    },
+    {
+      "path": "/administracao",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/administracao/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/administracao/"
+    },
+    {
+      "path": "/pet/perfil",
+      "entityAvailable": false,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/pet/perfil/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/pet/perfil/"
+    },
+    {
+      "path": "/termos",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/termos/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/termos/"
+    },
+    {
+      "path": "/privacidade",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/privacidade/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/privacidade/"
+    },
+    {
+      "path": "/seguranca",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        },
+        {
+          "type": "console",
+          "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "pageerror",
+          "message": "./apps/web/components/pet-form.tsx:159:4\nError: Expression expected\n  157 |   if (createdName) return <section className=\"pet-create-success\" aria-labelledby=\"pet-cr...\n  158 | +\n> 159 | +  return <div className=\"pet-create-layout\"><div className=\"pet-create-main\"><Link href=...\n      |    ^^^^^^\n  160 | +    <nav className=\"pet-stepper\" aria-label=\"Etapas do cadastro\">{steps.map((label, inde...\n  161 | +    <form className=\"product-form\" onSubmit={form.handleSubmit(submit, invalidSubmit)} n...\n"
+        }
+      ],
+      "failedRequests": [],
+      "httpFailures": [
+        {
+          "status": 500,
+          "url": "http://localhost:3000/seguranca/"
+        }
+      ],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 0,
+          "smallControlCount": 0,
+          "mainBounds": null,
+          "navBounds": null
+        }
+      ],
+      "status": 500,
+      "finalPath": "/seguranca/"
+    }
+  ],
+  "blockedMutations": [],
+  "screenshots": [
+    "landing-375.png",
+    "landing-1440.png",
+    "cadastro-375.png",
+    "cadastro-1440.png",
+    "dashboard-375.png",
+    "dashboard-1440.png",
+    "explorar-375.png",
+    "explorar-1440.png",
+    "animais-novo-375.png",
+    "animais-novo-1440.png",
+    "mensagens-375.png",
+    "mensagens-1440.png",
+    "comunidade-375.png",
+    "comunidade-1440.png",
+    "configuracoes-375.png",
+    "configuracoes-1440.png",
+    "administracao-375.png",
+    "administracao-1440.png"
+  ],
+  "moderator": true
+}

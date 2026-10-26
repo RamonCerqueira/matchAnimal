@@ -1,0 +1,39 @@
+{
+  "name": "matchanimal",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/web",
+    "apps/api",
+    "packages/shared"
+  ],
+  "scripts": {
+    "dev": "concurrently -n web,api -c green,blue \"npm:dev:web\" \"npm:dev:api\"",
+    "dev:web": "npm run dev -w @matchanimal/web",
+    "dev:api": "npm run start:dev -w @matchanimal/api",
+    "build": "npm run db:generate && npm run build -w @matchanimal/web && npm run build -w @matchanimal/api",
+    "lint": "npm run lint -w @matchanimal/web && npm run lint -w @matchanimal/api",
+    "typecheck": "npm run db:generate && npm run typecheck -w @matchanimal/web && npm run typecheck -w @matchanimal/api",
+    "db:generate": "npm run db:generate -w @matchanimal/api",
+    "db:migrate": "npm run db:migrate -w @matchanimal/api",
+    "cap:build:web": "pnpm --filter @matchanimal/web build",
+    "cap:sync": "pnpm run cap:build:web && pnpm exec cap sync",
+    "cap:add:android": "pnpm exec cap add android",
+    "cap:add:ios": "pnpm exec cap add ios",
+    "cap:run:android": "pnpm run cap:sync && pnpm exec cap run android",
+    "cap:run:ios": "pnpm run cap:sync && pnpm exec cap run ios",
+    "cap:open:android": "pnpm exec cap open android",
+    "cap:open:ios": "pnpm exec cap open ios"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.3",
+    "concurrently": "^9.2.1"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/geolocation": "^8.2.3",
+    "@capacitor/haptics": "^8.0.2",
+    "@capacitor/ios": "^8.5.3"
+  }
+}

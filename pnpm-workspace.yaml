@@ -1,0 +1,9 @@
+packages:
+  - apps/web
+  - apps/api
+  - packages/shared
+
+allowBuilds:
+  '@prisma/engines': true
+  prisma: true
+  unrs-resolver: true

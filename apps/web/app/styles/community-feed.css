@@ -1,0 +1,1331 @@
+/* ==========================================================================
+   MatchAnimal — Redesenho Visual da Comunidade, Feed e Posts
+   Estilo moderno, acolhedor e dinâmico inspirado em Instagram/Threads Pet
+   ========================================================================== */
+
+/* --- Variáveis específicas do Feed --- */
+:root {
+  --feed-card-bg: #ffffff;
+  --feed-card-border: #e7eae3;
+  --feed-card-radius: 22px;
+  --feed-card-shadow: 0 4px 20px rgba(49, 93, 66, 0.05);
+  --feed-card-shadow-hover: 0 10px 30px rgba(49, 93, 66, 0.09);
+  --feed-heart-red: #e11d48;
+  --feed-heart-bg: #ffe4e6;
+}
+
+/* --- Container e Cards de Posts --- */
+.social-shell .community-post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.social-shell .community-post-card {
+  position: relative;
+  background: var(--feed-card-bg);
+  border: 1px solid var(--feed-card-border);
+  border-radius: var(--feed-card-radius);
+  box-shadow: var(--feed-card-shadow);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.social-shell .community-post-card:hover {
+  box-shadow: var(--feed-card-shadow-hover);
+  border-color: #d7ded2;
+}
+
+/* --- Cabeçalho do Post (Header) --- */
+.social-shell .community-post-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: #ffffff;
+}
+
+.social-shell .community-post-avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.social-shell .community-post-avatar {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #f0f4ee;
+  background-size: cover;
+  background-position: center;
+  color: var(--forest, #315d42);
+  border: 2px solid #eef2ec;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+}
+
+.social-shell .community-post-avatar:hover {
+  transform: scale(1.05);
+}
+
+.social-shell .community-post-byline {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.social-shell .community-post-author-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.social-shell .community-post-author-row strong {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ma-ink, #263027);
+  line-height: 1.3;
+}
+
+.social-shell .community-post-author-row strong a {
+  color: inherit;
+  transition: color 0.15s ease;
+}
+
+.social-shell .community-post-author-row strong a:hover {
+  color: var(--forest, #315d42);
+  text-decoration: underline;
+}
+
+.social-shell .community-pet-species-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #edf4ec;
+  color: var(--forest, #315d42);
+}
+
+.social-shell .community-post-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--ma-muted, #64746b);
+}
+
+.social-shell .community-post-location-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--forest, #315d42);
+  font-weight: 500;
+}
+
+/* --- Botão Seguir --- */
+.social-shell .community-follow-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  border: 1px solid var(--forest, #315d42);
+  background: transparent;
+  color: var(--forest, #315d42);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.social-shell .community-follow-btn:hover:not(:disabled) {
+  background: #f0f6ee;
+}
+
+.social-shell .community-follow-btn.is-following {
+  background: #f1f4ed;
+  border-color: #d1d9cc;
+  color: var(--ma-muted, #64746b);
+}
+
+.social-shell .community-follow-btn.is-following:hover:not(:disabled) {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #dc2626;
+}
+
+.social-shell .community-post-more-btn {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--ma-muted, #64746b);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.social-shell .community-post-more-btn:hover {
+  background: #f3f6ee;
+  color: var(--ma-ink, #263027);
+}
+
+/* --- Menu de Opções Suspenso (Dropdown) --- */
+.social-shell .community-post-menu-dropdown {
+  position: absolute;
+  top: 56px;
+  right: 18px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid var(--feed-card-border);
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  min-width: 190px;
+  padding: 6px;
+  animation: menuIn 0.15s ease-out;
+}
+
+@keyframes menuIn {
+  from { opacity: 0; transform: translateY(-8px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.social-shell .community-post-menu-dropdown button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ma-ink, #263027);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.social-shell .community-post-menu-dropdown button:hover {
+  background: #f4f7ef;
+}
+
+.social-shell .community-post-menu-dropdown button.menu-danger {
+  color: #dc2626;
+}
+
+.social-shell .community-post-menu-dropdown button.menu-danger:hover {
+  background: #fef2f2;
+}
+
+/* --- Texto do Post (Caption) --- */
+.social-shell .community-post-caption {
+  padding: 0 20px 14px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ma-ink, #263027);
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.social-shell .community-post-caption .post-hashtag {
+  color: var(--forest, #315d42);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.social-shell .community-post-caption .post-hashtag:hover {
+  text-decoration: underline;
+}
+
+.social-shell .community-post-readmore {
+  display: inline-block;
+  background: none;
+  border: none;
+  color: var(--ma-muted, #64746b);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 6px;
+  padding: 0;
+}
+
+.social-shell .community-post-readmore:hover {
+  color: var(--forest, #315d42);
+  text-decoration: underline;
+}
+
+/* --- Carrossel / Galeria de Mídias --- */
+.social-shell .community-carousel-wrap {
+  position: relative;
+  width: 100%;
+  background: #17211b;
+  overflow: hidden;
+  user-select: none;
+}
+
+.social-shell .community-carousel-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.social-shell .community-carousel-slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  max-height: 580px;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #17211b;
+}
+
+.social-shell .community-carousel-slide img {
+  width: 100%;
+  max-height: 580px;
+  object-fit: cover;
+  display: block;
+}
+
+.social-shell .community-carousel-slide video {
+  width: 100%;
+  max-height: 580px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Botões do Carrossel (Anterior / Próximo) */
+.social-shell .community-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(23, 33, 27, 0.7);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.social-shell .community-carousel-arrow:hover {
+  background: rgba(23, 33, 27, 0.95);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.social-shell .community-carousel-arrow.arrow-prev {
+  left: 14px;
+}
+
+.social-shell .community-carousel-arrow.arrow-next {
+  right: 14px;
+}
+
+/* Indicador de Página (Pill 1/3) */
+.social-shell .community-carousel-counter {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 4;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(23, 33, 27, 0.75);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+}
+
+/* Indicadores de Ponto (Dots) */
+.social-shell .community-carousel-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 0 6px;
+}
+
+.social-shell .community-carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d1d9cc;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.social-shell .community-carousel-dot.is-active {
+  width: 18px;
+  border-radius: 999px;
+  background: var(--forest, #315d42);
+}
+
+/* --- Animação de Batimento/Coração ao dar Double-Tap --- */
+.social-shell .community-floating-heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 6;
+  color: #ffffff;
+  filter: drop-shadow(0 6px 20px rgba(225, 29, 72, 0.7));
+  pointer-events: none;
+  animation: heartPop 0.85s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes heartPop {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  30% {
+    transform: translate(-50%, -50%) scale(1.35);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.9) translateY(-20px);
+    opacity: 0;
+  }
+}
+
+/* --- Barra de Ações (Curtir, Comentar, Compartilhar, Salvar) --- */
+.social-shell .community-post-actions-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px 8px;
+}
+
+.social-shell .community-post-actions-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.social-shell .community-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: var(--ma-muted, #64746b);
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.social-shell .community-action-btn:hover {
+  background: #f1f4ed;
+  color: var(--ma-ink, #263027);
+}
+
+/* Botão de Curtida Ativo com Animação */
+.social-shell .community-action-btn.is-liked {
+  color: var(--feed-heart-red);
+  background: var(--feed-heart-bg);
+}
+
+.social-shell .community-action-btn.is-liked svg {
+  animation: likeBounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes likeBounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
+.social-shell .community-action-btn.is-saved {
+  color: var(--forest, #315d42);
+  background: #eaf2e8;
+}
+
+/* Contador de Estatísticas (Curtidas / Comentários) */
+.social-shell .community-post-metrics-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 20px 10px;
+  font-size: 12.5px;
+  color: var(--ma-muted, #64746b);
+  border-bottom: 1px solid #f1f4ed;
+}
+
+.social-shell .community-post-metrics-bar strong {
+  color: var(--ma-ink, #263027);
+  font-weight: 700;
+}
+
+.social-shell .community-post-comments-toggle {
+  background: none;
+  border: none;
+  color: var(--ma-muted, #64746b);
+  font-size: 12.5px;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+
+.social-shell .community-post-comments-toggle:hover {
+  color: var(--forest, #315d42);
+  text-decoration: underline;
+}
+
+/* --- Seção de Comentários Integrada --- */
+.social-shell .community-comments-section {
+  background: #fafbfa;
+  border-top: 1px solid #f1f4ed;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: commentsIn 0.2s ease-out;
+}
+
+@keyframes commentsIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.social-shell .community-comment-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.social-shell .community-comment-bubble {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.social-shell .community-comment-avatar {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e8eee5;
+  color: var(--forest, #315d42);
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.social-shell .community-comment-body-wrap {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #e9ede5;
+  border-radius: 14px;
+  padding: 8px 14px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ma-ink, #263027);
+  flex: 1;
+}
+
+.social-shell .community-comment-body-wrap strong {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ma-ink, #263027);
+  margin-bottom: 2px;
+}
+
+/* Barra de Reações Rápidas por Emoji */
+.social-shell .community-quick-emojis {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0;
+}
+
+.social-shell .community-emoji-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.social-shell .community-emoji-btn:hover {
+  background: #ffffff;
+  transform: scale(1.25);
+  border-color: #dbe4d8;
+}
+
+/* Formulário de Envio de Comentário */
+.social-shell .community-comment-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-shell .community-comment-input {
+  flex: 1;
+  min-height: 44px;
+  border: 1px solid var(--feed-card-border);
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 14px;
+  background: #ffffff;
+  color: var(--ma-ink, #263027);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.social-shell .community-comment-input:focus {
+  border-color: var(--forest, #315d42);
+  box-shadow: 0 0 0 3px rgba(49, 93, 66, 0.12);
+}
+
+.social-shell .community-comment-submit-btn {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: var(--forest, #315d42);
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.social-shell .community-comment-submit-btn:hover:not(:disabled) {
+  background: var(--forest-deep, #274d36);
+  transform: scale(1.05);
+}
+
+.social-shell .community-comment-submit-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* --- Feedback do Post (Alertas/Sucesso) --- */
+.social-shell .community-post-feedback-alert {
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  background: #f0f7ec;
+  color: #14532d;
+  border-top: 1px solid #d4e7cb;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* --- Melhorias na Barra Lateral (Left Rail Links) --- */
+.social-shell .community-rail-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ma-muted, #64746b);
+  transition: all 0.15s ease;
+}
+
+.social-shell .community-rail-link:hover {
+  background: #f1f4ed;
+  color: var(--ma-ink, #263027);
+}
+
+.social-shell .community-rail-link.community-rail-active {
+  background: #eaf2e8;
+  color: var(--forest, #315d42);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   MatchAnimal — Página de Seguidores e Conexões
+   ========================================================================== */
+
+.followers-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.followers-search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  border: 1.5px solid #dce4d8;
+  border-radius: 14px;
+  padding: 8px 14px;
+  flex: 1;
+  min-width: 220px;
+  color: var(--ma-muted, #64746b);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.followers-search-box:focus-within {
+  border-color: var(--forest, #315d42);
+  box-shadow: 0 0 0 3px rgba(49, 93, 66, 0.1);
+  color: var(--forest, #315d42);
+}
+
+.followers-search-box input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-size: 14px;
+  color: var(--ma-ink, #263027);
+  outline: none;
+}
+
+.followers-search-box input::placeholder {
+  color: #94a39b;
+}
+
+.followers-search-box button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #94a39b;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  border-radius: 50%;
+}
+
+.followers-search-box button:hover {
+  color: var(--ma-ink, #263027);
+}
+
+.followers-pet-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1.5px solid #dce4d8;
+  border-radius: 14px;
+  padding: 8px 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.followers-pet-filter label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ma-muted, #64746b);
+  white-space: nowrap;
+}
+
+.followers-pet-filter select {
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--forest, #315d42);
+  outline: none;
+  cursor: pointer;
+}
+
+/* Grade de cards de seguidores */
+.followers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.follower-card {
+  background: #ffffff;
+  border: 1.5px solid #e5ece0;
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 3px 14px rgba(49, 93, 66, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.follower-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(49, 93, 66, 0.09);
+  border-color: #cbd8c4;
+}
+
+.follower-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.follower-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #eaf2e8;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #eef4ec;
+  color: var(--forest, #315d42);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 18px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.follower-pet-avatar {
+  border-radius: 16px;
+}
+
+.follower-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.follower-info strong {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ma-ink, #263027);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.follower-info strong a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.follower-info strong a:hover {
+  color: var(--forest, #315d42);
+  text-decoration: underline;
+}
+
+.follower-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #6d7f73;
+}
+
+.follower-follows-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #55665a;
+}
+
+.follower-pet-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #edf5ea;
+  color: var(--forest, #315d42);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  border: 1px solid #dbe7d7;
+}
+
+.follower-pet-mini-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.follower-pets-section {
+  background: #f8faf6;
+  border-radius: 12px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.follower-pets-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #7b8e80;
+}
+
+.follower-pets-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.follower-pet-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid #d8e2d4;
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--forest, #315d42);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.follower-pet-chip:hover {
+  background: #eaf2e7;
+  border-color: var(--forest, #315d42);
+  transform: translateY(-1px);
+}
+
+.follower-pet-chip img {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.follower-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #edf2ea;
+  padding-top: 10px;
+  font-size: 12px;
+  color: #7d9083;
+}
+
+.follower-view-link {
+  color: var(--forest, #315d42);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.follower-view-link:hover {
+  text-decoration: underline;
+}
+
+.follower-unfollow-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #fff5f5;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.follower-unfollow-btn:hover:not(:disabled) {
+  background: #fee2e2;
+  border-color: #ef4444;
+}
+
+.follower-unfollow-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Solicitações */
+.request-card {
+  border-left: 4px solid var(--forest, #315d42);
+}
+
+.request-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.request-accept-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--forest, #315d42);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.request-accept-btn:hover:not(:disabled) {
+  background: var(--forest-deep, #274d36);
+}
+
+.request-reject-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f4ee;
+  color: #64746b;
+  border: none;
+  border-radius: 10px;
+  padding: 7px 9px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.request-reject-btn:hover:not(:disabled) {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Sidebar Seus Animais */
+.sidebar-pet-summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #edf2ea;
+}
+
+.sidebar-pet-summary:last-child {
+  border-bottom: none;
+}
+
+.sidebar-pet-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background-color: #eaf2e8;
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  place-items: center;
+  color: var(--forest, #315d42);
+  flex-shrink: 0;
+  border: 1.5px solid #dce4d8;
+}
+
+.sidebar-pet-summary strong {
+  display: block;
+  font-size: 13px;
+  color: var(--ma-ink, #263027);
+  font-weight: 700;
+}
+
+.sidebar-pet-summary small {
+  display: block;
+  font-size: 12px;
+  color: #6d7f73;
+}
+
+/* ==========================================================================
+   MatchAnimal — Sugestões de Amizade Pet & Tendências
+   ========================================================================== */
+
+.community-suggestions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.community-sugg-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.community-sugg-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background-color: #eaf2e8;
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  place-items: center;
+  color: var(--forest, #315d42);
+  flex-shrink: 0;
+  border: 1.5px solid #dce4d8;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+
+.community-sugg-avatar:hover {
+  transform: scale(1.05);
+}
+
+.community-sugg-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.community-sugg-info strong {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ma-ink, #263027);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.community-sugg-info strong:hover {
+  color: var(--forest, #315d42);
+}
+
+.community-sugg-info small {
+  font-size: 11px;
+  color: #6d7f73;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.community-sugg-follow-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--forest, #315d42);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.community-sugg-follow-btn:hover:not(:disabled) {
+  background: var(--forest-deep, #274d36);
+  transform: translateY(-1px);
+}
+
+.community-sugg-follow-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.community-sugg-see-all {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--forest, #315d42);
+  text-decoration: none;
+}
+
+.community-sugg-see-all:hover {
+  text-decoration: underline;
+}
+
+/* Hashtags populares */
+.community-trending-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.community-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f4f7f2;
+  border: 1px solid #dce4d8;
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--forest, #315d42);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.community-tag-pill:hover {
+  background: #eaf2e8;
+  border-color: var(--forest, #315d42);
+  transform: translateY(-1px);
+}
+
+.community-tag-pill small {
+  background: #dce7d9;
+  color: var(--forest-deep, #274d36);
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+/* Avatares de participantes nos Eventos */
+.community-event-participants {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.community-event-avatars {
+  display: flex;
+  align-items: center;
+  padding-left: 6px;
+}
+
+.community-event-avatar-thumb {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  background: #eaf2e8;
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--forest, #315d42);
+  margin-left: -6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   MatchAnimal — Abas do Feed e Navegação com Contorno e Animação
+   ========================================================================== */
+
+@keyframes tabButtonPop {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(49, 93, 66, 0.25);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 4px 16px rgba(49, 93, 66, 0.16), 0 0 0 3px rgba(49, 93, 66, 0.12);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 3px 12px rgba(49, 93, 66, 0.1);
+  }
+}
+
+.social-shell .community-feed-tabs,
+.community-feed-tabs {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border: 1.5px solid #dce4d8 !important;
+  border-radius: 999px;
+  background: #edf2eb !important;
+  margin: 18px 0 24px;
+  box-shadow: inset 0 2px 4px rgba(49, 93, 66, 0.03);
+}
+
+.social-shell .community-feed-tabs button,
+.community-feed-tabs button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  height: auto;
+  flex: 1;
+  padding: 9px 16px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 2px solid transparent !important;
+  background: transparent;
+  color: var(--ma-muted, #64746b);
+  cursor: pointer;
+  white-space: nowrap;
+  outline: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.social-shell .community-feed-tabs button:hover:not(.community-tab-active),
+.community-feed-tabs button:hover:not(.community-tab-active) {
+  color: var(--forest, #315d42);
+  background: rgba(255, 255, 255, 0.65);
+  transform: translateY(-1px);
+}
+
+/* Botão ativo com contorno verde nítido, sombra suave e animação pop */
+.social-shell .community-feed-tabs .community-tab-active,
+.community-feed-tabs .community-tab-active {
+  background: #ffffff !important;
+  color: var(--forest, #315d42) !important;
+  font-weight: 700 !important;
+  border: 2px solid var(--forest, #315d42) !important;
+  box-shadow: 0 4px 14px rgba(49, 93, 66, 0.14) !important;
+  animation: tabButtonPop 0.26s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 1;
+}
+
+/* Remove completamente qualquer linha verde embaixo de abas */
+.community-feed-tabs .community-tab-active:after,
+.community-tab-active:after,
+.social-shell .community-feed-tabs .community-tab-active:after {
+  display: none !important;
+  content: none !important;
+  height: 0 !important;
+  opacity: 0 !important;
+}
+
+
+

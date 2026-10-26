@@ -1,0 +1,14 @@
+ALTER TABLE "CommercialPartner"
+ADD COLUMN "legalName" VARCHAR(180),
+ADD COLUMN "taxId" VARCHAR(32),
+ADD COLUMN "whatsapp" VARCHAR(30),
+ADD COLUMN "billingContact" VARCHAR(100),
+ADD COLUMN "billingEmail" VARCHAR(254),
+ADD COLUMN "postalCode" VARCHAR(9),
+ADD COLUMN "street" VARCHAR(180),
+ADD COLUMN "addressNumber" VARCHAR(30),
+ADD COLUMN "complement" VARCHAR(100),
+ADD COLUMN "district" VARCHAR(100),
+ADD COLUMN "instagram" VARCHAR(30),
+ADD COLUMN "description" VARCHAR(2000),
+ADD COLUMN "commercialOwner" VARCHAR(100);

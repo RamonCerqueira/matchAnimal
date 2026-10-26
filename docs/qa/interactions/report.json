@@ -1,0 +1,33 @@
+{
+  "readOnly": true,
+  "results": [
+    {
+      "name": "administrator identity matches the server permission and account filter",
+      "passed": true
+    },
+    {
+      "name": "dashboard CTA contrast and keyboard dialog",
+      "passed": true
+    },
+    {
+      "name": "explore preferences and four swipe directions",
+      "passed": true
+    },
+    {
+      "name": "pet form steps, accessible fields and real local photo crop",
+      "passed": true
+    },
+    {
+      "name": "community compose deep link focuses the real editor",
+      "passed": true
+    },
+    {
+      "name": "dashboard network failure shows retry instead of an empty account",
+      "passed": true
+    },
+    {
+      "name": "follow and unknown notification types render safely",
+      "passed": true
+    }
+  ]
+}

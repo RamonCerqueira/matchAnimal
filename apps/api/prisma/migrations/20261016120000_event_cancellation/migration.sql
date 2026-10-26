@@ -1,0 +1,1 @@
+ALTER TABLE "PetEvent" ADD COLUMN "isCancelled" BOOLEAN NOT NULL DEFAULT false;

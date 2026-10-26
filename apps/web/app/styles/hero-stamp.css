@@ -1,0 +1,185 @@
+/* ==========================================================================
+   Selo "Feito com carinho" — animado com cuidado
+   - texto circular girando devagar
+   - coração com batida dupla (como um batimento de verdade)
+   - onda suave se expandindo, brilhos cintilando e flutuação leve
+   - respeita prefers-reduced-motion
+   ========================================================================== */
+
+.hero-wrap .hero-stamp {
+  top: 8px;
+  right: -6px;
+  width: 98px;
+  height: 98px;
+  gap: 0;
+  border: 1px solid #b4c1ac;
+  background: radial-gradient(circle at 35% 30%, #ffffff 0%, #f7f7f2f2 60%, #eef2e8f2 100%);
+  box-shadow: 0 10px 26px #315d4224, inset 0 0 0 1px #ffffffb3;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: var(--forest);
+  cursor: default;
+  transform: rotate(10deg);
+  transition: box-shadow .3s ease, scale .3s cubic-bezier(.34, 1.56, .64, 1);
+  animation:
+    stampIn .9s cubic-bezier(.34, 1.56, .64, 1) both,
+    stampFloat 6s ease-in-out .9s infinite;
+}
+
+/* aro interno fino, dá acabamento de selo */
+.hero-wrap .hero-stamp::before {
+  content: "";
+  position: absolute;
+  inset: 22px;
+  border-radius: 50%;
+  border: 1px dashed #b4c1ac;
+}
+
+/* onda suave saindo do selo */
+.hero-wrap .hero-stamp::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid #c8785866;
+  opacity: 0;
+  pointer-events: none;
+  animation: stampWave 3.6s ease-out 1.6s infinite;
+}
+
+.hero-wrap .hero-stamp:hover {
+  scale: 1.08;
+  box-shadow: 0 14px 34px #315d4233, inset 0 0 0 1px #ffffffb3;
+}
+
+.hero-wrap .hero-stamp .stamp-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--forest);
+  animation: stampSpin 26s linear infinite;
+}
+
+.hero-wrap .hero-stamp:hover .stamp-ring {
+  animation-duration: 9s;
+}
+
+.hero-wrap .hero-stamp .stamp-ring text {
+  fill: currentColor;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: .6px;
+}
+
+.hero-wrap .hero-stamp .stamp-heart {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 3px 10px #c8785830;
+  color: var(--orange);
+  animation: stampHeartbeat 2.6s ease-in-out infinite;
+}
+
+.hero-wrap .hero-stamp .stamp-heart svg {
+  width: 20px;
+  height: 20px;
+  color: var(--orange);
+}
+
+/* brilhos cintilantes nas bordas */
+.hero-wrap .hero-stamp .stamp-spark {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: #d9a25a;
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero-wrap .hero-stamp .stamp-spark-a {
+  top: -3px;
+  right: 10px;
+  animation: stampTwinkle 3.4s ease-in-out .4s infinite;
+}
+
+.hero-wrap .hero-stamp .stamp-spark-b {
+  bottom: 4px;
+  left: -4px;
+  width: 5px;
+  height: 5px;
+  background: #a4b397;
+  animation: stampTwinkle 3.4s ease-in-out 1.9s infinite;
+}
+
+@keyframes stampIn {
+  from { opacity: 0; transform: rotate(-80deg) scale(.4); }
+  to   { opacity: 1; transform: rotate(10deg) scale(1); }
+}
+
+@keyframes stampFloat {
+  0%, 100% { transform: rotate(10deg) translateY(0); }
+  50%      { transform: rotate(6deg) translateY(-6px); }
+}
+
+@keyframes stampSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* batida dupla: "tum-tum ... pausa" */
+@keyframes stampHeartbeat {
+  0%, 50%, 100% { transform: scale(1); }
+  12%           { transform: scale(1.16); }
+  24%           { transform: scale(1); }
+  36%           { transform: scale(1.1); }
+}
+
+@keyframes stampWave {
+  0%   { transform: scale(1);    opacity: .7; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+
+@keyframes stampTwinkle {
+  0%, 100% { opacity: 0; transform: scale(.3) rotate(0deg); }
+  50%      { opacity: 1; transform: scale(1.25) rotate(45deg); }
+}
+
+@media (max-width: 760px) {
+  .hero-wrap .hero-stamp {
+    top: 4px;
+    right: -2px;
+    width: 74px;
+    height: 74px;
+  }
+
+  .hero-wrap .hero-stamp::before { inset: 17px; }
+
+  .hero-wrap .hero-stamp .stamp-heart {
+    width: 28px;
+    height: 28px;
+  }
+
+  .hero-wrap .hero-stamp .stamp-heart svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-wrap .hero-stamp,
+  .hero-wrap .hero-stamp::after,
+  .hero-wrap .hero-stamp .stamp-ring,
+  .hero-wrap .hero-stamp .stamp-heart,
+  .hero-wrap .hero-stamp .stamp-spark {
+    animation: none;
+  }
+
+  .hero-wrap .hero-stamp .stamp-spark { opacity: .8; }
+}

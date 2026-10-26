@@ -1,0 +1,8 @@
+ALTER TABLE "TutorProfile" ADD COLUMN "bio" VARCHAR(500);
+ALTER TABLE "TutorProfile" ADD COLUMN "phone" VARCHAR(30);
+ALTER TABLE "TutorProfile" ADD COLUMN "matchRadiusKm" INTEGER DEFAULT 50;
+ALTER TABLE "TutorProfile" ADD COLUMN "preferredSpecies" TEXT DEFAULT 'ALL';
+ALTER TABLE "TutorProfile" ADD COLUMN "notifyMessages" BOOLEAN NOT NULL DEFAULT true;
+ALTER TABLE "TutorProfile" ADD COLUMN "notifyMatches" BOOLEAN NOT NULL DEFAULT true;
+ALTER TABLE "TutorProfile" ADD COLUMN "notifyCommunity" BOOLEAN NOT NULL DEFAULT true;
+ALTER TABLE "TutorProfile" ADD COLUMN "notifyEvents" BOOLEAN NOT NULL DEFAULT true;

@@ -1,0 +1,4164 @@
+{
+  "stage": "after",
+  "capturedAt": "2026-10-17T21:16:23.453Z",
+  "browser": "136.0.7103.93",
+  "widths": [
+    320,
+    375,
+    430,
+    768,
+    1024,
+    1280,
+    1440,
+    1920
+  ],
+  "authentication": "authenticated",
+  "readOnly": true,
+  "socketPolicy": "Socket connections blocked to prevent automatic read receipts",
+  "routes": [
+    {
+      "path": "/",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "type": "pageerror",
+          "message": "undefined"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "method": "GET",
+          "url": "http://localhost:3000/",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "method": "GET",
+          "url": "https://images.unsplash.com/photo-1548199973-03cce0bbc87b",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "method": "GET",
+          "url": "https://images.unsplash.com/photo-1552053831-71594a27632d",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "method": "GET",
+          "url": "https://images.unsplash.com/photo-1543466835-00a7907e9de1",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "method": "GET",
+          "url": "https://images.unsplash.com/photo-1511044568932-338cba0ad803",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "method": "GET",
+          "url": "https://images.unsplash.com/photo-1558788353-f76d92427f16",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 372,
+          "overflow": true,
+          "overflowElements": [
+            {
+              "tag": "DIV",
+              "className": "heading-aside",
+              "right": 372
+            },
+            {
+              "tag": "P",
+              "className": "",
+              "right": 372
+            }
+          ],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 19,
+          "smallControlCount": 5,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 19,
+          "smallControlCount": 4,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 19,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 22,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 22,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 1024
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 22,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 1280
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 22,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 1440
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 22,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 1920
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/"
+    },
+    {
+      "path": "/entrar",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "method": "GET",
+          "url": "https://images.unsplash.com/photo-1517849845537-4d257902454a",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 7,
+          "smallControlCount": 0,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 7,
+          "smallControlCount": 0,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 7,
+          "smallControlCount": 0,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 8,
+          "smallControlCount": 0,
+          "mainBounds": {
+            "left": 341,
+            "width": 427
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 8,
+          "smallControlCount": 0,
+          "mainBounds": {
+            "left": 486,
+            "width": 538
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 8,
+          "smallControlCount": 0,
+          "mainBounds": {
+            "left": 608,
+            "width": 672
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 8,
+          "smallControlCount": 0,
+          "mainBounds": {
+            "left": 684,
+            "width": 756
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 8,
+          "smallControlCount": 0,
+          "mainBounds": {
+            "left": 912,
+            "width": 1008
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/entrar/"
+    },
+    {
+      "path": "/cadastro",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "method": "GET",
+          "url": "https://images.unsplash.com/photo-1517849845537-4d257902454a",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 324,
+          "overflow": true,
+          "overflowElements": [
+            {
+              "tag": "LABEL",
+              "className": "",
+              "right": 324
+            },
+            {
+              "tag": "DIV",
+              "className": "",
+              "right": 324
+            }
+          ],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 16,
+          "smallControlCount": 4,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 16,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 16,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 17,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 341,
+            "width": 427
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 17,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 486,
+            "width": 538
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 17,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 608,
+            "width": 672
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 17,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 684,
+            "width": 756
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 17,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 912,
+            "width": 1008
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/cadastro/"
+    },
+    {
+      "path": "/recuperar-senha",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 4,
+          "smallControlCount": 1,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 4,
+          "smallControlCount": 1,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 4,
+          "smallControlCount": 1,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 4,
+          "smallControlCount": 1,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 4,
+          "smallControlCount": 1,
+          "mainBounds": {
+            "left": 0,
+            "width": 1024
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 4,
+          "smallControlCount": 1,
+          "mainBounds": {
+            "left": 0,
+            "width": 1280
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 4,
+          "smallControlCount": 1,
+          "mainBounds": {
+            "left": 0,
+            "width": 1440
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 4,
+          "smallControlCount": 1,
+          "mainBounds": {
+            "left": 0,
+            "width": 1920
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/recuperar-senha/"
+    },
+    {
+      "path": "/dashboard",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 5,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 300
+          }
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 355
+          }
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 410
+          }
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 16,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 16,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 1024
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 16,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1280
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 16,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1440
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 17,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1920
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/dashboard/"
+    },
+    {
+      "path": "/explorar",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "method": "GET",
+          "url": "https://images.unsplash.com/photo-1552053831-71594a27632d",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 21,
+          "smallControlCount": 5,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 300
+          }
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 21,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 355
+          }
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 21,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 410
+          }
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 23,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 23,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 1024
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 23,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1280
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 23,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1440
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 24,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1920
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/explorar/"
+    },
+    {
+      "path": "/animais",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 12,
+          "smallControlCount": 5,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 300
+          }
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 12,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 355
+          }
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 12,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 410
+          }
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 1024
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1280
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1440
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 15,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1920
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/animais/"
+    },
+    {
+      "path": "/animais/novo",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "type": "pageerror",
+          "message": "undefined"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 24,
+          "smallControlCount": 5,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 300
+          }
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 24,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 355
+          }
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 24,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 410
+          }
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 26,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 26,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 1024
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 26,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1280
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 26,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1440
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 27,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1920
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/animais/novo/"
+    },
+    {
+      "path": "/matches",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 12,
+          "smallControlCount": 5,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 300
+          }
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 12,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 355
+          }
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 12,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 410
+          }
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 1024
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1280
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1440
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 15,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1920
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/matches/"
+    },
+    {
+      "path": "/mensagens",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 11,
+          "smallControlCount": 5,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 300
+          }
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 11,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 355
+          }
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 11,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 410
+          }
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 13,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 13,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 1024
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 13,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1280
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 13,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1440
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1920
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/mensagens/"
+    },
+    {
+      "path": "/comunidade",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [
+            {
+              "tag": "A",
+              "className": "",
+              "right": 417
+            },
+            {
+              "tag": "svg",
+              "className": "svg",
+              "right": 348
+            },
+            {
+              "tag": "rect",
+              "className": "svg",
+              "right": 346
+            }
+          ],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 25,
+          "smallControlCount": 5,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 300
+          }
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [
+            {
+              "tag": "A",
+              "className": "",
+              "right": 421
+            }
+          ],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 25,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 355
+          }
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 25,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 410
+          }
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 781,
+          "overflow": true,
+          "overflowElements": [
+            {
+              "tag": "DIV",
+              "className": "social-header-actions",
+              "right": 781
+            },
+            {
+              "tag": "BUTTON",
+              "className": "social-logout",
+              "right": 781
+            }
+          ],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 27,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 27,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 1024
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 28,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 1280
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 31,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 1440
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 32,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 1920
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/comunidade/"
+    },
+    {
+      "path": "/comunidade/explorar",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [
+            {
+              "tag": "A",
+              "className": "",
+              "right": 417
+            },
+            {
+              "tag": "svg",
+              "className": "svg",
+              "right": 348
+            },
+            {
+              "tag": "rect",
+              "className": "svg",
+              "right": 346
+            }
+          ],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 25,
+          "smallControlCount": 5,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 300
+          }
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [
+            {
+              "tag": "A",
+              "className": "",
+              "right": 421
+            }
+          ],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 25,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 355
+          }
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 25,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 410
+          }
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 781,
+          "overflow": true,
+          "overflowElements": [
+            {
+              "tag": "DIV",
+              "className": "social-header-actions",
+              "right": 781
+            },
+            {
+              "tag": "BUTTON",
+              "className": "social-logout",
+              "right": 781
+            }
+          ],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 27,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 27,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 1024
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 28,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 1280
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 31,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 1440
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 32,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 1920
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/comunidade/explorar/"
+    },
+    {
+      "path": "/comunidade/publicacao",
+      "entityAvailable": false,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "type": "pageerror",
+          "message": "undefined"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 11,
+          "smallControlCount": 5,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 300
+          }
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 11,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 355
+          }
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 11,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 410
+          }
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 781,
+          "overflow": true,
+          "overflowElements": [
+            {
+              "tag": "DIV",
+              "className": "social-header-actions",
+              "right": 781
+            },
+            {
+              "tag": "BUTTON",
+              "className": "social-logout",
+              "right": 781
+            }
+          ],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 13,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 13,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 1024
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 13,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1280
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 13,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1440
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1920
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/comunidade/publicacao/"
+    },
+    {
+      "path": "/grupos",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 12,
+          "smallControlCount": 5,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 300
+          }
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 12,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 355
+          }
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 12,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 410
+          }
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 781,
+          "overflow": true,
+          "overflowElements": [
+            {
+              "tag": "DIV",
+              "className": "social-header-actions",
+              "right": 781
+            },
+            {
+              "tag": "BUTTON",
+              "className": "social-logout",
+              "right": 781
+            }
+          ],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 1024
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1280
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1440
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 15,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1920
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/grupos/"
+    },
+    {
+      "path": "/grupos/detalhe",
+      "entityAvailable": false,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 11,
+          "smallControlCount": 5,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 300
+          }
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 11,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 355
+          }
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 11,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 410
+          }
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 781,
+          "overflow": true,
+          "overflowElements": [
+            {
+              "tag": "DIV",
+              "className": "social-header-actions",
+              "right": 781
+            },
+            {
+              "tag": "BUTTON",
+              "className": "social-logout",
+              "right": 781
+            }
+          ],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 13,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 13,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 1024
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 13,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1280
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 13,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1440
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1920
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/grupos/detalhe/"
+    },
+    {
+      "path": "/eventos",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 12,
+          "smallControlCount": 5,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 300
+          }
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 12,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 355
+          }
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 12,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 410
+          }
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 781,
+          "overflow": true,
+          "overflowElements": [
+            {
+              "tag": "DIV",
+              "className": "social-header-actions",
+              "right": 781
+            },
+            {
+              "tag": "BUTTON",
+              "className": "social-logout",
+              "right": 781
+            }
+          ],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 1024
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1280
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1440
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 15,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1920
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/eventos/"
+    },
+    {
+      "path": "/adocoes",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 12,
+          "smallControlCount": 5,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 300
+          }
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 12,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 355
+          }
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 12,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 410
+          }
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 7,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 7,
+          "mainBounds": {
+            "left": 0,
+            "width": 1024
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1280
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1440
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 15,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1920
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/adocoes/"
+    },
+    {
+      "path": "/notificacoes",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 12,
+          "smallControlCount": 5,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 300
+          }
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 12,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 355
+          }
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 12,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 410
+          }
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 7,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 7,
+          "mainBounds": {
+            "left": 0,
+            "width": 1024
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1280
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1440
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 15,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1920
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/notificacoes/"
+    },
+    {
+      "path": "/configuracoes",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 335,
+          "overflow": true,
+          "overflowElements": [
+            {
+              "tag": "LABEL",
+              "className": "",
+              "right": 335
+            },
+            {
+              "tag": "DIV",
+              "className": "",
+              "right": 335
+            },
+            {
+              "tag": "BUTTON",
+              "className": "",
+              "right": 330
+            }
+          ],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 20,
+          "smallControlCount": 8,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 300
+          }
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 20,
+          "smallControlCount": 5,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 355
+          }
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 20,
+          "smallControlCount": 4,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 410
+          }
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 22,
+          "smallControlCount": 8,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 22,
+          "smallControlCount": 8,
+          "mainBounds": {
+            "left": 0,
+            "width": 1024
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 22,
+          "smallControlCount": 4,
+          "mainBounds": {
+            "left": 0,
+            "width": 1280
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 22,
+          "smallControlCount": 4,
+          "mainBounds": {
+            "left": 0,
+            "width": 1440
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 23,
+          "smallControlCount": 4,
+          "mainBounds": {
+            "left": 0,
+            "width": 1920
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/configuracoes/"
+    },
+    {
+      "path": "/administracao",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [
+            {
+              "tag": "BUTTON",
+              "className": "",
+              "right": 382
+            },
+            {
+              "tag": "BUTTON",
+              "className": "",
+              "right": 566
+            },
+            {
+              "tag": "svg",
+              "className": "svg",
+              "right": 419
+            },
+            {
+              "tag": "rect",
+              "className": "svg",
+              "right": 417
+            },
+            {
+              "tag": "BUTTON",
+              "className": "",
+              "right": 701
+            },
+            {
+              "tag": "svg",
+              "className": "svg",
+              "right": 603
+            },
+            {
+              "tag": "path",
+              "className": "svg",
+              "right": 601
+            }
+          ],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 19,
+          "smallControlCount": 5,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 300
+          }
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [
+            {
+              "tag": "BUTTON",
+              "className": "",
+              "right": 386
+            },
+            {
+              "tag": "BUTTON",
+              "className": "",
+              "right": 570
+            },
+            {
+              "tag": "svg",
+              "className": "svg",
+              "right": 423
+            },
+            {
+              "tag": "rect",
+              "className": "svg",
+              "right": 421
+            },
+            {
+              "tag": "BUTTON",
+              "className": "",
+              "right": 705
+            },
+            {
+              "tag": "svg",
+              "className": "svg",
+              "right": 607
+            },
+            {
+              "tag": "path",
+              "className": "svg",
+              "right": 605
+            }
+          ],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 19,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 355
+          }
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [
+            {
+              "tag": "BUTTON",
+              "className": "",
+              "right": 570
+            },
+            {
+              "tag": "BUTTON",
+              "className": "",
+              "right": 705
+            },
+            {
+              "tag": "svg",
+              "className": "svg",
+              "right": 607
+            },
+            {
+              "tag": "path",
+              "className": "svg",
+              "right": 605
+            }
+          ],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 19,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 410
+          }
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 21,
+          "smallControlCount": 7,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 21,
+          "smallControlCount": 7,
+          "mainBounds": {
+            "left": 0,
+            "width": 1024
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 21,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1280
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 21,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1440
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 22,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1920
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/administracao/"
+    },
+    {
+      "path": "/pet/perfil",
+      "entityAvailable": false,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "http://localhost:3000/__nextjs_font/geist-latin.woff2",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 11,
+          "smallControlCount": 5,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 300
+          }
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 11,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 355
+          }
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 11,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": {
+            "top": 818,
+            "bottom": 892,
+            "width": 410
+          }
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 13,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 13,
+          "smallControlCount": 6,
+          "mainBounds": {
+            "left": 0,
+            "width": 1024
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 13,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1280
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 13,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1440
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 0,
+          "missingEntity": true,
+          "sessionLoading": false,
+          "visibleControlCount": 14,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 1920
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/pet/perfil/"
+    },
+    {
+      "path": "/termos",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 3,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 3,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 3,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 3,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 3,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 87,
+            "width": 850
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 3,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 215,
+            "width": 850
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 3,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 295,
+            "width": 850
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 3,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 535,
+            "width": 850
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/termos/"
+    },
+    {
+      "path": "/privacidade",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 3,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 3,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 3,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 3,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 3,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 87,
+            "width": 850
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 3,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 215,
+            "width": 850
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 3,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 295,
+            "width": 850
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 3,
+          "smallControlCount": 3,
+          "mainBounds": {
+            "left": 535,
+            "width": 850
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/privacidade/"
+    },
+    {
+      "path": "/seguranca",
+      "entityAvailable": true,
+      "errors": [
+        {
+          "type": "console",
+          "message": "Failed to load resource: net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2",
+          "reason": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "httpFailures": [],
+      "viewports": [
+        {
+          "viewport": 320,
+          "documentWidth": 320,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 2,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 320
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 375,
+          "documentWidth": 375,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 2,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 375
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 430,
+          "documentWidth": 430,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 2,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 430
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 768,
+          "documentWidth": 768,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 2,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 0,
+            "width": 768
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1024,
+          "documentWidth": 1024,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 2,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 87,
+            "width": 850
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1280,
+          "documentWidth": 1280,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 2,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 215,
+            "width": 850
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 2,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 295,
+            "width": 850
+          },
+          "navBounds": null
+        },
+        {
+          "viewport": 1920,
+          "documentWidth": 1920,
+          "overflow": false,
+          "overflowElements": [],
+          "headingCount": 1,
+          "missingEntity": false,
+          "sessionLoading": false,
+          "visibleControlCount": 2,
+          "smallControlCount": 2,
+          "mainBounds": {
+            "left": 535,
+            "width": 850
+          },
+          "navBounds": null
+        }
+      ],
+      "status": 200,
+      "finalPath": "/seguranca/"
+    }
+  ],
+  "blockedMutations": [],
+  "screenshots": [
+    "landing-375.png",
+    "landing-1440.png",
+    "cadastro-375.png",
+    "cadastro-1440.png",
+    "dashboard-375.png",
+    "dashboard-1440.png",
+    "explorar-375.png",
+    "explorar-1440.png",
+    "animais-novo-375.png",
+    "animais-novo-1440.png",
+    "mensagens-375.png",
+    "mensagens-1440.png",
+    "comunidade-375.png",
+    "comunidade-1440.png",
+    "configuracoes-375.png",
+    "configuracoes-1440.png",
+    "administracao-375.png",
+    "administracao-1440.png"
+  ],
+  "moderator": true
+}

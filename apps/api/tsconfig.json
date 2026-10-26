@@ -1,0 +1,4 @@
+{
+  "compilerOptions":{"module":"commonjs","declaration":true,"removeComments":true,"emitDecoratorMetadata":true,"experimentalDecorators":true,"allowSyntheticDefaultImports":true,"target":"ES2022","sourceMap":true,"outDir":"./dist","baseUrl":"./","paths":{"@matchanimal/shared":["../../packages/shared/index.d.ts"]},"incremental":true,"skipLibCheck":true,"strictNullChecks":true,"noImplicitAny":false,"strictBindCallApply":false,"forceConsistentCasingInFileNames":true,"noFallthroughCasesInSwitch":false,"moduleResolution":"node","esModuleInterop":true,"strict":true},
+  "include":["src/**/*.ts","prisma.config.ts"],"exclude":["node_modules","dist"]
+}

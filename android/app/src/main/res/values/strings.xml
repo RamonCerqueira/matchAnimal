@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">MatchAnimal</string>
+    <string name="title_activity_main">MatchAnimal</string>
+    <string name="package_name">com.matchanimal.app</string>
+    <string name="custom_url_scheme">com.matchanimal.app</string>
+</resources>
