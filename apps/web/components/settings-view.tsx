@@ -1,5 +1,7 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import { useCallback, useEffect, useRef, useState, type FormEvent } from "react";
 import Link from "next/link";
 import {
@@ -64,7 +66,7 @@ type BlockedUser = {
 
 type SettingsTab = "profile" | "discovery" | "notifications" | "security" | "privacy";
 
-const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const api = apiBaseUrl;
 
 export function SettingsView() {
   const [account, setAccount] = useState<Account | null>(null);

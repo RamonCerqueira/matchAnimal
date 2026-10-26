@@ -1,11 +1,13 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useRef, useState, type FormEvent } from "react";
 import { Check, Eye, EyeOff, LoaderCircle, Mail, ShieldCheck } from "lucide-react";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const API_BASE_URL = apiBaseUrl;
 
 /**
  * Form for password recovery request and password reset completion

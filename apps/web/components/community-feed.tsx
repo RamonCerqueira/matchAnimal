@@ -1,5 +1,7 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import { useCallback, useEffect, useRef, useState, type FormEvent, type ChangeEvent } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -65,7 +67,7 @@ function formatPostText(text: string) {
   });
 }
 
-const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const api = apiBaseUrl;
 type FeedMedia = { id: string; storageKey: string; mediaType: string; mimeType: string; sizeBytes: number };
 export type FeedPost = { id: string; body: string; kind: string; visibility: string; locationLabel: string | null; createdAt: string; authorId: string; author: { id: string; tutor: { displayName: string; profilePhotoUrl: string | null } | null }; pet: { id: string; name: string; species: string; breed: string | null; coverPhotoUrl: string | null; followedByMe: boolean; followerCount: number } | null; media: FeedMedia[]; _count: { likes: number; comments: number }; likedByMe: boolean; savedByMe: boolean };
 type Story = { id: string; mediaKey: string; mediaType: string; caption: string | null; expiresAt: string; pet: { name: string; coverPhotoUrl: string | null } | null; author: { tutor: { displayName: string; profilePhotoUrl: string | null } | null }; viewedByMe: boolean };

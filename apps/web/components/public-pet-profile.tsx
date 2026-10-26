@@ -1,12 +1,14 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight, CalendarDays, MapPin, PawPrint, ShieldCheck, Users } from "lucide-react";
 
 type PetDetails = { id: string; name: string; species: string; speciesOther: string | null; breed: string | null; sex: string; size: string; birthDate: string | null; bio: string | null; intent: string; temperament: string[]; city: string | null; state: string | null; coverPhotoUrl: string | null; photos?: Array<{ id: string; altText: string | null; sortOrder: number; url: string }> };
 type SocialSummary = { followerCount: number; postCount: number; followedByMe: boolean; isOwner: boolean };
-const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const api = apiBaseUrl;
 const translations: Record<string, string> = { DOG: "Cão", CAT: "Gato", OTHER: "Outra espécie", FEMALE: "Fêmea", MALE: "Macho", UNKNOWN: "Não informado", SMALL: "Pequeno", MEDIUM: "Médio", LARGE: "Grande", EXTRA_LARGE: "Gigante", FRIENDSHIP: "Amizade", RESPONSIBLE_BREEDING: "Relacionamento responsável", ADOPTION: "Disponível para adoção" };
 
 export function PublicPetProfile({ petId }: { petId: string }) {

@@ -1,5 +1,7 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Bell, Bird, Cat, Dog, Heart, LogOut, MapPin, MessageCircle, PawPrint, Search, ShieldAlert } from "lucide-react";
@@ -40,7 +42,7 @@ export function AppShell({ children, title }: { children: React.ReactNode; title
   const [loggingOut, setLoggingOut] = useState(false);
 
   useEffect(() => {
-    const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+    const api = apiBaseUrl;
     let active = true;
     async function verifySession() {
       setAuthError("");
@@ -76,7 +78,7 @@ export function AppShell({ children, title }: { children: React.ReactNode; title
 
   useEffect(() => {
     if (!authReady) return;
-    const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+    const api = apiBaseUrl;
     void Promise.allSettled([
       fetch(`${api}/api/notifications/unread-count`, { credentials: "include" }).then((response) => response.ok ? response.json() as Promise<{ count: number }> : null),
       fetch(`${api}/api/pets/matches`, { credentials: "include" }).then((response) => response.ok ? response.json() as Promise<unknown[]> : null),
@@ -86,7 +88,7 @@ export function AppShell({ children, title }: { children: React.ReactNode; title
   async function logout() {
     setLoggingOut(true); setLogoutError("");
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000"}/api/auth/logout`, { method: "POST", credentials: "include" });
+      const response = await fetch(`${apiBaseUrl}/api/auth/logout`, { method: "POST", credentials: "include" });
       if (!response.ok && response.status !== 401) throw new Error();
       window.location.assign(new URL("/", window.location.origin).href);
     } catch { setLogoutError("Não foi possível sair da conta. Tente novamente."); setLoggingOut(false); }

@@ -1,5 +1,7 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { io, type Socket } from "socket.io-client";
 import type { ChatMessageEvent } from "@matchanimal/shared";
@@ -9,7 +11,7 @@ import { petFeedback } from "@/lib/native-feedback";
 
 type Thread = { id: string; updatedAt: string; unreadCount: number; match: { petA: { id: string; name: string; ownerId: string; coverPhotoUrl: string | null }; petB: { id: string; name: string; ownerId: string; coverPhotoUrl: string | null } }; messages: Message[] };
 type Message = { id: string; threadId: string; senderId: string; body: string; createdAt: string; deliveredAt?: string | null; readAt?: string | null };
-const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const api = apiBaseUrl;
 
 export function ChatInbox() {
   const [threads, setThreads] = useState<Thread[]>([]);

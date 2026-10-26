@@ -1,9 +1,11 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { AlertCircle, CheckCircle2, Inbox, LoaderCircle, RefreshCw } from "lucide-react";
 
-export const commercialApi = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+export const commercialApi = apiBaseUrl;
 export const commercialBase = "/api/commercial/admin";
 export const assetUrl = (url: string) => url.startsWith("/") ? `${commercialApi}${url}` : url;
 export const money = (cents: number) => new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(cents / 100);

@@ -1,5 +1,7 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import {
   useEffect,
   useRef,
@@ -108,7 +110,7 @@ const sizes: Record<string, string> = {
   UNKNOWN: "Não informado",
 };
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const API_BASE_URL = apiBaseUrl;
 
 function ageLabel(birthDate?: string | null): string {
   if (!birthDate) return "idade não informada";

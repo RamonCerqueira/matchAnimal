@@ -1,5 +1,7 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, ChevronRight, Heart, MapPin, MessageCircle, PawPrint, Plus, ShieldCheck, Sparkles, UsersRound } from "lucide-react";
@@ -13,7 +15,7 @@ type Pet = { id: string; name: string; species: string; breed?: string | null; c
 type Event = { id: string; title: string; startsAt: string; locationLabel: string };
 type CompatibilityFactor = { label: string; explanation: string; points: number; maxPoints: number };
 type Suggestion = { id: string; name: string; breed: string | null; species: string; city: string | null; state: string | null; coverPhotoUrl: string | null; approximateDistanceKm?: number | null; compatibility?: { score: number | null; factors: CompatibilityFactor[] } | null };
-const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const api = apiBaseUrl;
 
 export function SocialHome() {
   const session = useAppSession();

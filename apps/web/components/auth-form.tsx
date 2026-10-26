@@ -1,5 +1,7 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import Link from "next/link";
 import { useState, type ReactNode } from "react";
 import { useForm, type UseFormRegister } from "react-hook-form";
@@ -19,7 +21,7 @@ import {
 } from "lucide-react";
 import { LocationPicker, type LocationSelection } from "@/components/location-picker";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const API_BASE_URL = apiBaseUrl;
 
 /**
  * Validation schema for Authentication (Login and Registration)

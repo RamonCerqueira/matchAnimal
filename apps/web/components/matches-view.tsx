@@ -1,5 +1,7 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Heart, LoaderCircle, MessageCircle, PawPrint, Undo2 } from "lucide-react";
@@ -10,7 +12,7 @@ import { petFeedback } from "@/lib/native-feedback";
 type Pet = { id: string; name: string; species: string; breed: string | null; coverPhotoUrl: string | null; isMine: boolean };
 type Match = { id: string; createdAt: string; thread: { id: string } | null; petA: Pet; petB: Pet };
 type Interest = { id: string; createdAt: string; isSuperMatch: boolean; isReciprocal: boolean; fromPet: { id: string; name: string; species: string; breed: string | null; sex: string; size: string; birthDate: string | null; bio: string | null; intent: string; temperament: string[]; preferences: string[]; city: string | null; state: string | null; coverPhotoUrl: string | null }; toPet: { id: string; name: string; isPublic: boolean } };
-const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const api = apiBaseUrl;
 
 export function MatchesView() {
   const [matches, setMatches] = useState<Match[]>([]);

@@ -1,5 +1,7 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import { useState, type FormEvent } from "react";
 import { Activity, AlertTriangle, ArrowUpRight, CalendarClock, Check, Download, Plus, RefreshCw, Search, ShieldCheck, Trash2, UserX } from "lucide-react";
 import { Dialog } from "@/components/ui/dialog";
@@ -8,7 +10,7 @@ import { AdminBadge, AdminFeedback, AdminField, AdminMetric, AdminState, AdminSu
 type Area = "users" | "team" | "cases" | "analytics" | "packages" | "settings" | "audit";
 const teamRoles: Record<string, string> = { COMMERCIAL: "Comercial", FINANCE: "Financeiro", MODERATOR: "Moderação", SUPPORT: "Atendimento", ANALYST: "Analista" };
 const caseKinds: Record<string, string> = { SUPPORT: "Atendimento", PRIVACY: "Privacidade / LGPD", PARTNER_TASK: "Tarefa de parceria", PROPOSAL: "Proposta comercial", APPEAL: "Recurso de moderação", INCIDENT: "Incidente" };
-const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const api = apiBaseUrl;
 type Account = { id: string; email: string; type: string; accountStatus: string; suspendedUntil: string | null; createdAt: string; lastSeenAt: string | null; tutor: { displayName: string; city: string | null; state: string | null } | null; _count: { pets: number; reportsMade: number; posts: number; adoptionApplications: number }; isAdministrator: boolean };
 type CaseItem = { id: string; kind: string; title: string; description: string; status: string; priority: string; userId: string | null; partnerId: string | null; assigneeId: string | null; dueAt: string | null; createdAt: string; updatedAt: string; messages: { id: string; authorId: string; body: string; internal: boolean; createdAt: string }[] };
 type StaffItem = { userId: string; role: string; active: boolean; createdAt: string; user: { id: string; email: string; tutor?: { displayName: string } | null } | null };

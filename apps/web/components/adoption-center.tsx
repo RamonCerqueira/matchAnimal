@@ -1,11 +1,13 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Check, HeartHandshake, LoaderCircle, PawPrint, X } from "lucide-react";
 
 type Application = { id: string; petId: string; status: string; message: string; livingDetails: string | null; createdAt: string; isMine: boolean; pet: { name: string; intent: string }; applicant: { tutor: { displayName: string; city: string | null; state: string | null } | null } };
-const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const api = apiBaseUrl;
 const statusText: Record<string, string> = { SUBMITTED: "Recebida", IN_REVIEW: "Em análise", APPROVED: "Aprovada", DECLINED: "Encerrada", WITHDRAWN: "Retirada" };
 
 export function AdoptionCenter() {

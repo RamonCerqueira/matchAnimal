@@ -1,5 +1,7 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Store } from "lucide-react";
 import "@/app/styles/sponsored-placement.css";
@@ -16,7 +18,7 @@ type Campaign = {
   partner: { businessName: string };
   asset: { id: string; url: string; mediaType: "IMAGE" | "VIDEO"; mimeType: string; width: number; height: number };
 };
-const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const api = apiBaseUrl;
 
 function httpsDestination(value: string): string | null {
   try {

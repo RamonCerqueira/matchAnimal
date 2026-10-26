@@ -1,11 +1,13 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeft, LoaderCircle, PawPrint } from "lucide-react";
 import { PostCard, type FeedPost } from "@/components/community-feed";
 
-const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const api = apiBaseUrl;
 type PostAction = "like" | "save" | "report";
 type ActionResult = { message?: string | string[]; liked?: boolean; count?: number; saved?: boolean };
 

@@ -1,10 +1,12 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useState, type FormEvent } from "react";
 import { CalendarDays, Check, LoaderCircle, MapPin, Plus, Users } from "lucide-react";
 const EventMap = dynamic(() => import("./event-map"), { ssr: false, loading: () => <div className="community-map-loading">Carregando mapa…</div> });
-const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const api = apiBaseUrl;
 type Group = { id: string; name: string; slug: string; description: string; visibility: string; _count: { members: number; posts: number }; members: { approved: boolean }[] };
 type EventItem = { id: string; title: string; description: string; startsAt: string; endsAt: string | null; locationLabel: string; latitude: number | null; longitude: number | null; capacity: number | null; visibility: string; isOrganizer: boolean; _count: { participants: number }; participants: { status: string }[] };
 

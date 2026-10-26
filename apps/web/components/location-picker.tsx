@@ -1,5 +1,7 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import dynamic from "next/dynamic";
 import { useId, useState, type KeyboardEvent } from "react";
 import { ChevronDown, LoaderCircle, LocateFixed, Map, MapPin, Search, ShieldCheck } from "lucide-react";
@@ -10,7 +12,7 @@ import { petFeedback } from "@/lib/native-feedback";
 export type LocationSelection = { city: string; state: string; latitude: number | null; longitude: number | null };
 const LocationMap = dynamic(() => import("./location-picker-map"), { ssr: false, loading: () => <div className="location-map-loading" role="status"><LoaderCircle className="form-spinner" size={20} aria-hidden="true" /> Carregando mapa…</div> });
 const privacyRound = (value: number) => Math.round(value * 100) / 100;
-const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const api = apiBaseUrl;
 
 function parseLocation(value: unknown): LocationSelection {
   if (!value || typeof value !== "object") throw new Error("Não encontramos essa região. Tente o nome da cidade e a sigla do estado.");

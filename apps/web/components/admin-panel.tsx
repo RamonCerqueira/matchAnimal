@@ -1,5 +1,7 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import { useCallback, useEffect, useState } from "react";
 import {
   ArrowUpRight,
@@ -84,7 +86,7 @@ type CommercialOverview = {
   events: { total: number; upcoming: number };
 };
 
-const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const api = apiBaseUrl;
 const number = new Intl.NumberFormat("pt-BR");
 
 export type AdminSection =

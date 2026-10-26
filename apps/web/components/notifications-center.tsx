@@ -1,11 +1,13 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Bell, Check, Heart, LoaderCircle, MessageCircle, PawPrint, Sparkles } from "lucide-react";
 
 type Notification = { id: string; type: "LIKE" | "PET_LIKE" | "SUPER_MATCH" | "MATCH" | "MESSAGE" | "CONNECTION_UPDATE" | "FOLLOW"; entityId: string | null; readAt: string | null; createdAt: string; actor: { tutor: { displayName: string } | null } | null };
-const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const api = apiBaseUrl;
 const info = {
   FOLLOW: { title: "Novo seguidor pet", icon: PawPrint },
   LIKE: { title: "Curtida na sua publicação", icon: Heart },

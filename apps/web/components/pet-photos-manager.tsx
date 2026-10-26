@@ -1,12 +1,14 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import { useEffect, useId, useRef, useState } from "react";
 import { ArrowDown, ArrowUp, Camera, Check, Crop, ImagePlus, LoaderCircle, RefreshCw, RotateCcw, Save, Trash2 } from "lucide-react";
 import { PetPhotoEditor } from "@/components/pet-photo-editor";
 import { preparePetPhoto, uploadPetPhotos, type PetPhotoUpload } from "@/lib/pet-media";
 
 type Photo = { id?: string; storageKey?: string; url: string; file?: File };
-const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const api = apiBaseUrl;
 
 export function PetPhotosManager({ petId, initialPhotos, onSaved }: { petId: string; initialPhotos: Photo[]; onSaved: () => void }) {
   const id = useId();

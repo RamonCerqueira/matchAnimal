@@ -1,5 +1,7 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import {
@@ -22,7 +24,7 @@ import {
 } from "lucide-react";
 import { petFeedback } from "@/lib/native-feedback";
 
-const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const api = apiBaseUrl;
 
 type FollowerItem = {
   id: string;

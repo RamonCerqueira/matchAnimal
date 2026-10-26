@@ -1,5 +1,7 @@
 "use client";
 
+import { apiBaseUrl } from "@/lib/api-config";
+
 import Link from "next/link";
 import { useEffect, useRef, useState, type DragEvent } from "react";
 import { useForm, useWatch, type FieldErrors } from "react-hook-form";
@@ -31,7 +33,7 @@ const petSchema = z.object({
 type PetFormValues = z.infer<typeof petSchema>;
 type LocalPhoto = { file: File; url: string };
 const traits = ["Brincalhão", "Calmo", "Sociável", "Curioso", "Carinhoso", "Cheio de energia"];
-const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const api = apiBaseUrl;
 const draftKey = "matchanimal:new-pet:draft:v1";
 const steps = ["Informações", "Fotos", "Personalidade", "Publicação"];
 const stepFields: Array<Array<keyof PetFormValues>> = [["name", "species", "speciesOther", "breed", "size", "sex", "birthDate"], [], ["temperament", "bio", "intent"], ["isPublic"]];
