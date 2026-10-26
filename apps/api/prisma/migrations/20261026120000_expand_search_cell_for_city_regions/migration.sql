@@ -1,0 +1,5 @@
+ALTER TABLE "TutorProfile"
+  ALTER COLUMN "searchCell" TYPE VARCHAR(120);
+
+ALTER TABLE "Pet"
+  ALTER COLUMN "searchCell" TYPE VARCHAR(120);

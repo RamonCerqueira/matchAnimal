@@ -31,6 +31,9 @@ export class PetsController {
   @Get("matches")
   matches(@Req() request: AuthenticatedRequest) { return this.pets.listMatches(request.user.sub); }
 
+  @Get("interests/received")
+  receivedInterests(@Req() request: AuthenticatedRequest) { return this.pets.receivedInterests(request.user.sub); }
+
   @Get("explore")
   explore(@Req() request: AuthenticatedRequest, @Query("species") species?: PetSpecies, @Query("intent") intent?: ConnectionIntent, @Query("viewerPetId") viewerPetId?: string, @Query("cursor") cursor?: string, @Query("limit") limit?: string, @Query("radiusKm") radiusKm?: string) {
     const validSpecies = Object.values(PetSpecies).includes(species as PetSpecies) ? species : undefined;

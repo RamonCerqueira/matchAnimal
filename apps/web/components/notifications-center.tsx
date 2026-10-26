@@ -4,11 +4,12 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Bell, Check, Heart, LoaderCircle, MessageCircle, PawPrint, Sparkles } from "lucide-react";
 
-type Notification = { id: string; type: "LIKE" | "SUPER_MATCH" | "MATCH" | "MESSAGE" | "CONNECTION_UPDATE" | "FOLLOW"; entityId: string | null; readAt: string | null; createdAt: string; actor: { tutor: { displayName: string } | null } | null };
+type Notification = { id: string; type: "LIKE" | "PET_LIKE" | "SUPER_MATCH" | "MATCH" | "MESSAGE" | "CONNECTION_UPDATE" | "FOLLOW"; entityId: string | null; readAt: string | null; createdAt: string; actor: { tutor: { displayName: string } | null } | null };
 const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
 const info = {
   FOLLOW: { title: "Novo seguidor pet", icon: PawPrint },
   LIKE: { title: "Curtida na sua publicação", icon: Heart },
+  PET_LIKE: { title: "Alguém se interessou pelo seu pet", icon: Heart },
   SUPER_MATCH: { title: "Você recebeu um Super Match", icon: Sparkles },
   MATCH: { title: "Deu Match!", icon: Heart },
   MESSAGE: { title: "Nova mensagem", icon: MessageCircle },
@@ -19,6 +20,7 @@ function getNotificationHref(item: Notification): string {
   if (item.type === "FOLLOW") return "/comunidade/seguidores";
   if (item.type === "MESSAGE") return "/mensagens";
   if (item.type === "MATCH") return "/matches";
+  if (item.type === "PET_LIKE" || item.type === "SUPER_MATCH") return "/matches?tab=interesses";
   if (item.type === "LIKE" || item.type === "CONNECTION_UPDATE") {
     if (item.entityId) return `/comunidade/publicacao/${encodeURIComponent(item.entityId)}`;
     return "/comunidade";

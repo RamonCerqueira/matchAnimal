@@ -21,7 +21,7 @@ export class NotificationsService {
   async eventFor(userId: string, entityId: string, types: string[]) {
     const notification = await this.prisma.notification.findFirst({ where: { recipientId: userId, entityId, type: { in: types as never[] } }, orderBy: { createdAt: "desc" }, select: { id: true, type: true, entityId: true, createdAt: true, readAt: true } });
     if (!notification) return null;
-    const typeMap: Record<string, string> = { LIKE: "NEW_LIKE", FOLLOW: "NEW_LIKE", MATCH: "NEW_MATCH", MESSAGE: "NEW_MESSAGE", SUPER_MATCH: "SUPER_MATCH", CONNECTION_UPDATE: "SYSTEM_ALERT" };
+    const typeMap: Record<string, string> = { LIKE: "NEW_LIKE", PET_LIKE: "NEW_LIKE", FOLLOW: "NEW_LIKE", MATCH: "NEW_MATCH", MESSAGE: "NEW_MESSAGE", SUPER_MATCH: "SUPER_MATCH", CONNECTION_UPDATE: "SYSTEM_ALERT" };
     return { id: notification.id, type: typeMap[notification.type] ?? "SYSTEM_ALERT", title: notification.type === "MATCH" ? "Você tem um novo Match!" : notification.type === "MESSAGE" ? "Nova mensagem" : notification.type === "FOLLOW" ? "Novo seguidor" : "Nova interação", body: notification.type === "FOLLOW" ? "Um tutor começou a seguir um dos seus animais." : "Uma nova atividade está esperando por você.", referenceId: notification.entityId, createdAt: notification.createdAt.toISOString(), read: Boolean(notification.readAt) };
   }
 }

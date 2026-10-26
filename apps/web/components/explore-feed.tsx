@@ -2,7 +2,6 @@
 
 import {
   useEffect,
-  useMemo,
   useRef,
   useState,
   type FormEvent,
@@ -52,8 +51,6 @@ interface Profile {
   photoUrl?: string | null;
   note: string;
   health: boolean;
-  mutual?: boolean;
-  demo?: boolean;
 }
 
 interface ApiPet {
@@ -66,8 +63,9 @@ interface ApiPet {
   size?: string;
   birthDate?: string | null;
   bio?: string | null;
-  intent: Intent;
+  intent?: Intent;
   temperament?: string[];
+  preferences?: string[];
   city?: string | null;
   state?: string | null;
   coverPhotoUrl?: string | null;
@@ -79,8 +77,14 @@ interface OwnPet {
   id: string;
   name: string;
   species: string;
-  intent: Intent;
+  intent?: Intent;
+  isPublic: boolean;
   coverPhotoUrl?: string | null;
+}
+
+interface ApiMatch {
+  petA: ApiPet & { isMine: boolean };
+  petB: ApiPet & { isMine: boolean };
 }
 
 const intentLabels: Record<Intent, string> = {
@@ -133,128 +137,15 @@ function mapApiPet(pet: ApiPet): Profile {
     size: sizes[pet.size ?? "UNKNOWN"] ?? "Não informado",
     city: [pet.city, pet.state].filter(Boolean).join(", ") || "Região não informada",
     distance: pet.approximateDistanceKm ? `~${pet.approximateDistanceKm} km` : "Região aprox.",
-    intent: pet.intent,
+    intent: pet.intent ?? "FRIENDSHIP",
     score: pet.compatibility?.score ?? null,
-    traits: pet.temperament ?? [],
+    traits: [...new Set([...(pet.temperament ?? []), ...(pet.preferences ?? [])])],
     photo: "photo-1543466835-00a7907e9de1",
     photoUrl: pet.coverPhotoUrl,
     note: pet.bio || "Este perfil ainda não tem uma apresentação. Converse com o tutor para saber mais.",
     health: false,
-    demo: false,
   };
 }
-
-const demoProfiles: Profile[] = [
-  {
-    id: "p1",
-    name: "Jujuba",
-    age: "2 anos",
-    species: "Cão",
-    breed: "Golden Retriever",
-    sex: "Fêmea",
-    size: "Médio",
-    city: "Pinheiros, São Paulo",
-    distance: "2 km",
-    intent: "FRIENDSHIP",
-    score: 94,
-    traits: ["Sociável", "Adora passeios", "Brincalhona"],
-    photo: "photo-1552053831-71594a27632d",
-    note: "Meu lugar favorito é o parque. Sou amiga de todo mundo e adoro um passeio sem pressa. 🐾",
-    health: true,
-    mutual: true,
-    demo: true,
-  },
-  {
-    id: "p2",
-    name: "Bento",
-    age: "3 anos",
-    species: "Cão",
-    breed: "Sem raça definida",
-    sex: "Macho",
-    size: "Médio",
-    city: "Vila Madalena, São Paulo",
-    distance: "4 km",
-    intent: "FRIENDSHIP",
-    score: 91,
-    traits: ["Carinhoso", "Calmo", "Sociável"],
-    photo: "photo-1543466835-00a7907e9de1",
-    note: "Companhia boa, focinho curioso e especialista em descobrir novos caminhos.",
-    health: true,
-    demo: true,
-  },
-  {
-    id: "p3",
-    name: "Nina",
-    age: "1 ano",
-    species: "Gato",
-    breed: "Siamês",
-    sex: "Fêmea",
-    size: "Pequeno",
-    city: "Perdizes, São Paulo",
-    distance: "5 km",
-    intent: "FRIENDSHIP",
-    score: 88,
-    traits: ["Curiosa", "Carinhosa", "Caseira"],
-    photo: "photo-1511044568932-338cba0ad803",
-    note: "Busco uma amizade felina com introdução calma e respeitando meu tempo.",
-    health: true,
-    demo: true,
-  },
-  {
-    id: "p4",
-    name: "Sol",
-    age: "2 anos",
-    species: "Cão",
-    breed: "Border Collie",
-    sex: "Fêmea",
-    size: "Médio",
-    city: "Sumaré, São Paulo",
-    distance: "7 km",
-    intent: "RESPONSIBLE_BREEDING",
-    score: 86,
-    traits: ["Ativa", "Exames informados", "Acompanhamento"],
-    photo: "photo-1508898578281-774ac4893c0d",
-    note: "A família procura conversar com tutores e profissionais antes de qualquer apresentação.",
-    health: false,
-    demo: true,
-  },
-  {
-    id: "p5",
-    name: "Tico",
-    age: "8 meses",
-    species: "Cão",
-    breed: "Caramelo",
-    sex: "Macho",
-    size: "Pequeno",
-    city: "Vila Mariana, São Paulo",
-    distance: "8 km",
-    intent: "ADOPTION",
-    score: 0,
-    traits: ["Brincalhão", "Em lar temporário", "Dócil"],
-    photo: "photo-1551717743-49959800b1f6",
-    note: "Estou em um lar temporário e procuro uma família que tenha tempo para acompanhar minha adaptação.",
-    health: true,
-    demo: true,
-  },
-  {
-    id: "p6",
-    name: "Frida",
-    age: "4 anos",
-    species: "Gato",
-    breed: "SRD",
-    sex: "Fêmea",
-    size: "Pequeno",
-    city: "Consolação, São Paulo",
-    distance: "3 km",
-    intent: "ADOPTION",
-    score: 0,
-    traits: ["Tranquila", "Independente", "Carinhosa"],
-    photo: "photo-1573865526739-10659fec78a5",
-    note: "Gosto de uma casa tranquila, janelas seguras e carinho no meu tempo.",
-    health: true,
-    demo: true,
-  },
-];
 
 function ExplorePhoto({ source, name }: { source: string | null; name: string }) {
   const [failed, setFailed] = useState(false);
@@ -288,16 +179,15 @@ export function ExploreFeed() {
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [ownPets, setOwnPets] = useState<OwnPet[]>([]);
   const [viewerPetId, setViewerPetId] = useState("");
+  const [viewerPetIsPublic, setViewerPetIsPublic] = useState(false);
   const [matches, setMatches] = useState<Profile[]>([]);
   const [modal, setModal] = useState<Profile | null>(null);
   const [matchCelebration, setMatchCelebration] = useState<Profile | null>(null);
   const [applicationSent, setApplicationSent] = useState(false);
   const [applicationError, setApplicationError] = useState("");
   const [notice, setNotice] = useState("");
-  const [usingDemo, setUsingDemo] = useState(false);
   const [actionBusy, setActionBusy] = useState(false);
   const [preferencesOpen, setPreferencesOpen] = useState(false);
-  const [profilePreview, setProfilePreview] = useState<Profile | null>(null);
   const [optionsMenuOpen, setOptionsMenuOpen] = useState(false);
 
   const pointerStart = useRef<{ x: number; y: number; id: number } | null>(null);
@@ -308,9 +198,9 @@ export function ExploreFeed() {
   const [error, setError] = useState("");
   const [attempt, setAttempt] = useState(0);
   const [compatibilityOpen, setCompatibilityOpen] = useState(false);
+  const [hasLocation, setHasLocation] = useState<boolean | null>(null);
 
   const modalRef = useDialogAccessibility<HTMLElement>(Boolean(modal), () => setModal(null));
-  const previewRef = useDialogAccessibility<HTMLElement>(Boolean(profilePreview), () => setProfilePreview(null));
   const celebrationRef = useDialogAccessibility<HTMLElement>(Boolean(matchCelebration), () => setMatchCelebration(null));
   const router = useRouter();
 
@@ -330,19 +220,34 @@ export function ExploreFeed() {
   useEffect(() => {
     let active = true;
 
-    fetch(`${API_BASE_URL}/api/pets/mine`, { credentials: "include" })
-      .then(async (response) => {
-        if (!response.ok) throw new Error();
-        const pets = (await response.json()) as OwnPet[];
+    Promise.all([
+      fetch(`${API_BASE_URL}/api/pets/mine`, { credentials: "include" }),
+      fetch(`${API_BASE_URL}/api/auth/me`, { credentials: "include" }),
+      fetch(`${API_BASE_URL}/api/pets/matches`, { credentials: "include" }),
+    ])
+      .then(async ([petsResponse, tutorResponse, matchesResponse]) => {
+        if (!petsResponse.ok) throw new Error();
+        const pets = (await petsResponse.json()) as OwnPet[];
+        const tutorData = tutorResponse.ok ? await tutorResponse.json() : null;
+        const existingMatches = matchesResponse.ok ? ((await matchesResponse.json()) as ApiMatch[]) : [];
         if (!active) return;
+        setMatches(existingMatches.map((match) => mapApiPet(match.petA.isMine ? match.petB : match.petA)));
+        const tutor = tutorData?.tutor;
+        setHasLocation(Boolean((tutor?.city && tutor?.state) || (Number.isFinite(tutor?.latitude) && Number.isFinite(tutor?.longitude))));
+        if (Number.isFinite(tutor?.matchRadiusKm)) setRadiusKm(tutor.matchRadiusKm);
+        if (tutor?.preferredSpecies === "DOG") setSpecies("Cão");
+        else if (tutor?.preferredSpecies === "CAT") setSpecies("Gato");
+        else if (tutor?.preferredSpecies === "OTHER") setSpecies("Outro");
         setOwnPets(pets);
         const requestedPet = new URLSearchParams(window.location.search).get("pet");
         const selectedPet = pets.find((pet) => pet.id === requestedPet) ?? pets[0];
         if (selectedPet) {
           setViewerPetId(selectedPet.id);
+          setViewerPetIsPublic(selectedPet.isPublic);
         } else {
-          setProfiles(demoProfiles);
-          setUsingDemo(true);
+          setViewerPetId("");
+          setViewerPetIsPublic(false);
+          setProfiles([]);
           setLoading(false);
         }
       })
@@ -362,8 +267,11 @@ export function ExploreFeed() {
     if (!viewerPetId) return;
     let active = true;
 
+    const query = new URLSearchParams({ viewerPetId, radiusKm: String(radiusKm) });
+    if (intent !== "ALL") query.set("intent", intent);
+    if (species !== "ALL") query.set("species", species === "Cão" ? "DOG" : species === "Gato" ? "CAT" : "OTHER");
     fetch(
-      `${API_BASE_URL}/api/pets/explore?viewerPetId=${encodeURIComponent(viewerPetId)}&radiusKm=${radiusKm}`,
+      `${API_BASE_URL}/api/pets/explore?${query.toString()}`,
       { credentials: "include" }
     )
       .then(async (response) => {
@@ -372,7 +280,6 @@ export function ExploreFeed() {
         if (!active) return;
         const mapped = results.map(mapApiPet);
         setProfiles(mapped);
-        setUsingDemo(false);
         setIndex(0);
       })
       .catch(() => {
@@ -387,24 +294,9 @@ export function ExploreFeed() {
     return () => {
       active = false;
     };
-  }, [viewerPetId, radiusKm, attempt]);
+  }, [viewerPetId, radiusKm, intent, species, attempt]);
 
-  const filtered = useMemo(
-    () =>
-      profiles.filter(
-        (pet) =>
-          (intent === "ALL" || pet.intent === intent) &&
-          (species === "ALL" || pet.species === species)
-      ),
-    [profiles, intent, species]
-  );
-
-  const profile = filtered.length ? filtered[index % filtered.length] : null;
-
-  function next() {
-    setOptionsMenuOpen(false);
-    setIndex((value) => value + 1);
-  }
+  const profile = profiles.length ? profiles[index % profiles.length] : null;
 
   function dismissEvaluated(id: string) {
     setOptionsMenuOpen(false);
@@ -417,16 +309,18 @@ export function ExploreFeed() {
       return;
     }
     try {
+      const query = new URLSearchParams({ viewerPetId, limit: "50", radiusKm: String(radiusKm) });
+      if (intent !== "ALL") query.set("intent", intent);
+      if (species !== "ALL") query.set("species", species === "Cão" ? "DOG" : species === "Gato" ? "CAT" : "OTHER");
       const response = await fetch(
-        `${API_BASE_URL}/api/pets/explore?viewerPetId=${encodeURIComponent(viewerPetId)}&limit=50&radiusKm=${radiusKm}`,
+        `${API_BASE_URL}/api/pets/explore?${query.toString()}`,
         { credentials: "include" }
       );
       if (!response.ok) throw new Error("Não foi possível buscar novos perfis.");
       const data = (await response.json()) as ApiPet[];
       const known = new Set(profiles.map((item) => item.id));
       const fresh = data.map(mapApiPet).filter((item) => !known.has(item.id));
-      setProfiles((all) => all.filter((item) => !item.demo).concat(fresh));
-      setUsingDemo(false);
+      setProfiles((all) => all.concat(fresh));
       setIndex(0);
       if (!fresh.length) {
         setNotice("Você já avaliou todos os perfis disponíveis nesta região. Tente novamente mais tarde.");
@@ -437,22 +331,22 @@ export function ExploreFeed() {
   }
 
   function changeIntent(value: "ALL" | Intent) {
+    setLoading(true);
+    setError("");
     setIntent(value);
     setIndex(0);
   }
 
   function changeSpecies(value: string) {
+    setLoading(true);
+    setError("");
     setSpecies(value);
     setIndex(0);
   }
 
   function openProfile(pet = profile) {
     if (!pet) return;
-    if (pet.demo) {
-      setProfilePreview(pet);
-    } else {
-      router.push(`/pet/perfil?petId=${encodeURIComponent(pet.id)}`);
-    }
+    router.push(`/pet/perfil?petId=${encodeURIComponent(pet.id)}`);
   }
 
   function resetCard() {
@@ -525,10 +419,6 @@ export function ExploreFeed() {
 
   async function pass() {
     if (!profile || actionBusy) return;
-    if (profile.demo) {
-      next();
-      return;
-    }
     if (!viewerPetId) {
       setNotice("Cadastre um pet antes de avaliar perfis.");
       return;
@@ -565,24 +455,6 @@ export function ExploreFeed() {
 
     void petFeedback("tap");
 
-    if (profile.demo) {
-      if (superMatch) {
-        setNotice("Super Match demonstrativo. Cadastre um perfil para usar a funcionalidade.");
-        next();
-        return;
-      }
-      if (profile.intent === "RESPONSIBLE_BREEDING") {
-        setNotice("Relacionamentos exigem análise humana e verificação de saúde; a pontuação não recomenda reprodução.");
-      } else if (profile.mutual) {
-        void petFeedback("match");
-        setMatches((old) => (old.some((item) => item.id === profile.id) ? old : [profile, ...old]));
-        setNotice(`Você e ${profile.name} demonstraram interesse nesta prévia.`);
-      } else {
-        setNotice(`Interesse demonstrado por ${profile.name} nesta prévia.`);
-      }
-      next();
-      return;
-    }
 
     if (!viewerPetId) {
       setNotice("Cadastre um pet antes de demonstrar interesse.");
@@ -635,11 +507,6 @@ export function ExploreFeed() {
     const message = String(formData.get("message") ?? "");
     const livingDetails = String(formData.get("livingDetails") ?? "");
 
-    if (modal.demo) {
-      void petFeedback("success");
-      setApplicationSent(true);
-      return;
-    }
 
     try {
       const response = await fetch(
@@ -665,10 +532,6 @@ export function ExploreFeed() {
   }
 
   async function reportProfile(pet: Profile) {
-    if (pet.demo) {
-      setNotice("Os perfis demonstrativos não são usuários reais e não podem ser denunciados.");
-      return;
-    }
     const reason = window.prompt(
       `Por que você deseja denunciar o perfil de ${pet.name}?`,
       "Informação incorreta ou comportamento inadequado"
@@ -691,10 +554,6 @@ export function ExploreFeed() {
   }
 
   async function blockProfile(pet: Profile) {
-    if (pet.demo) {
-      setNotice("Os perfis demonstrativos não são usuários reais e não podem ser bloqueados.");
-      return;
-    }
     if (
       !window.confirm(
         `Bloquear o tutor de ${pet.name}? O perfil deste pet e de seu tutor serão removidos da sua descoberta.`
@@ -752,13 +611,6 @@ export function ExploreFeed() {
           <Filter size={18} />
         </button>
       </div>
-
-      {usingDemo && (
-        <div className="demo-notice">
-          <Info size={15} />
-          <span>Prévia da descoberta · estes perfis são exemplos e não representam usuários cadastrados.</span>
-        </div>
-      )}
 
       <div className="explore-layout">
         <section className="explore-main">
@@ -827,6 +679,7 @@ export function ExploreFeed() {
                   setLoading(true);
                   setError("");
                   setViewerPetId(event.target.value);
+                  setViewerPetIsPublic(ownPets.find((pet) => pet.id === event.target.value)?.isPublic ?? false);
                 }}
               >
                 {ownPets.map((pet) => (
@@ -837,6 +690,13 @@ export function ExploreFeed() {
               </select>
               <ChevronDown size={13} />
             </label>
+          )}
+
+          {viewerPetId && !viewerPetIsPublic && (
+            <div className="explore-notice" role="status">
+              Este perfil está privado. Você pode explorar, mas precisa publicá-lo para demonstrar interesse.
+              <Link href="/animais">Gerenciar visibilidade</Link>
+            </div>
           )}
 
           {notice && (
@@ -899,19 +759,14 @@ export function ExploreFeed() {
                   }}
                   role="group"
                   aria-label={
-                    profile.photoUrl || profile.demo
-                      ? `Foto ${profile.demo ? "demonstrativa " : ""}de ${profile.name}`
+                    profile.photoUrl
+                      ? `Foto de ${profile.name}`
                       : `Foto de ${profile.name} ainda não publicada`
                   }
                 >
                   <ExplorePhoto
                     key={profile.id}
-                    source={
-                      profile.photoUrl ??
-                      (profile.demo
-                        ? `https://images.unsplash.com/${profile.photo}?auto=format&fit=crop&w=900&q=82`
-                        : null)
-                    }
+                    source={profile.photoUrl ?? null}
                     name={profile.name}
                   />
 
@@ -1173,41 +1028,36 @@ export function ExploreFeed() {
                     </div>
                   )}
 
-                  {profile.demo ? (
-                    <button
-                      type="button"
-                      className="full-profile-link"
-                      onClick={() => setProfilePreview(profile)}
-                    >
-                      Ver perfil completo <ArrowRight size={14} />
-                    </button>
-                  ) : (
-                    <Link
-                      className="full-profile-link"
-                      href={`/pet/perfil?petId=${encodeURIComponent(profile.id)}`}
-                    >
-                      Ver perfil completo <ArrowRight size={14} />
-                    </Link>
-                  )}
+                  <Link
+                    className="full-profile-link"
+                    href={`/pet/perfil?petId=${encodeURIComponent(profile.id)}`}
+                  >
+                    Ver perfil completo <ArrowRight size={14} />
+                  </Link>
                 </div>
               </article>
             </>
           ) : (
             <div className="explore-empty">
               <PetFriends mood="friends" />
-              <h2>Nenhum perfil por aqui ainda.</h2>
-              <p>Altere os filtros ou volte mais tarde para conhecer novos pets.</p>
-              {usingDemo ? (
-                <button
-                  type="button"
-                  onClick={() => {
-                    setIntent("ALL");
-                    setSpecies("ALL");
-                    setIndex(0);
-                  }}
-                >
-                  Limpar filtros
-                </button>
+              <h2>
+                {ownPets.length === 0
+                  ? "Seu pet ainda não entrou na roda."
+                  : hasLocation === false
+                    ? "Defina sua região para encontrar pets por perto."
+                    : "Nenhum perfil por aqui ainda."}
+              </h2>
+              <p>
+                {ownPets.length === 0
+                  ? "Cadastre um perfil para descobrir animais reais, próximos e com objetivos parecidos."
+                  : hasLocation === false
+                    ? "Usamos cidade e localização aproximada para ordenar os encontros. Seu endereço nunca aparece."
+                    : "Amplie o raio ou ajuste os filtros para descobrir outros animais na região."}
+              </p>
+              {ownPets.length === 0 ? (
+                <Button onClick={() => router.push("/animais/novo")}>Cadastrar meu pet</Button>
+              ) : hasLocation === false ? (
+                <Button onClick={() => router.push("/configuracoes")}>Definir minha região</Button>
               ) : (
                 <button type="button" onClick={() => void loadMoreProfiles()}>
                   Buscar mais perfis
@@ -1269,6 +1119,9 @@ export function ExploreFeed() {
             </div>
             <span>{matches.length}</span>
           </div>
+          <Link className="full-profile-link" href="/matches?tab=interesses">
+            Ver interesses recebidos <ArrowRight size={14} />
+          </Link>
 
           {matches.length ? (
             <div className="mini-match-list">
@@ -1288,7 +1141,7 @@ export function ExploreFeed() {
                   />
                   <div>
                     <strong>{match.name}</strong>
-                    <small>{match.demo ? "Match de demonstração" : "Interesse mútuo"}</small>
+                    <small>Interesse mútuo</small>
                   </div>
                   <Check size={15} />
                 </button>
@@ -1312,54 +1165,6 @@ export function ExploreFeed() {
           </div>
         </aside>
       </div>
-
-      {profilePreview && (
-        <div className="dialog-backdrop" role="presentation" onClick={() => setProfilePreview(null)}>
-          <section
-            ref={previewRef}
-            className="product-dialog"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="pet-preview-title"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <button
-              type="button"
-              className="dialog-close"
-              onClick={() => setProfilePreview(null)}
-              aria-label="Fechar"
-            >
-              <X size={18} />
-            </button>
-            <div className="dialog-eyebrow">PERFIL DO PET · PRÉVIA</div>
-            <h2 id="pet-preview-title">
-              {profilePreview.name}, {profilePreview.age}
-            </h2>
-            <p className="dialog-lead">
-              {profilePreview.breed} · {profilePreview.sex} · Porte {profilePreview.size}
-            </p>
-            <div className="dialog-factor">
-              <MapPin size={16} />
-              <span>
-                {profilePreview.distance} · {profilePreview.city}
-              </span>
-            </div>
-            <p className="dialog-lead">{profilePreview.note}</p>
-            <div className="explore-traits">
-              {profilePreview.traits.map((trait) => (
-                <span key={trait}>{trait}</span>
-              ))}
-            </div>
-            <button
-              type="button"
-              className="dialog-understood"
-              onClick={() => setProfilePreview(null)}
-            >
-              Voltar aos perfis
-            </button>
-          </section>
-        </div>
-      )}
 
       {matchCelebration && (
         <div
@@ -1462,9 +1267,7 @@ export function ExploreFeed() {
                   </span>
                   <h2 id="dialog-title">Candidatura enviada.</h2>
                   <p>
-                    {modal.demo
-                      ? "Nesta prévia, a candidatura foi simulada."
-                      : "O responsável pelo animal receberá sua candidatura para avaliação."}
+                    O responsável pelo animal receberá sua candidatura para avaliação.
                   </p>
                   <button type="button" onClick={() => setModal(null)}>
                     Entendi

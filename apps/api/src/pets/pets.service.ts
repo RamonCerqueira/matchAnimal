@@ -129,45 +129,70 @@ export class PetsService {
     const selectedViewerId = filters.viewerPetId && ownedPets.some((pet) => pet.id === filters.viewerPetId) ? filters.viewerPetId : ownedPets[0]?.id;
     if (!selectedViewerId) return [];
     const viewer = await this.prisma.pet.findUnique({ where: { id: selectedViewerId }, select: { species: true, intent: true, size: true, birthDate: true, searchCell: true, latitude: true, longitude: true, temperament: true, preferences: true, healthChecklistComplete: true, healthVerificationStatus: true, veterinarianReviewAt: true } });
-    if (!viewer?.searchCell) return [];
+    if (!viewer || (!viewer.searchCell && (viewer.latitude === null || viewer.longitude === null))) return [];
+    if (filters.intent && filters.intent !== "ADOPTION" && filters.intent !== viewer.intent) return [];
     const excludedIds = new Set([ownerId, ...blocked.flatMap((block) => [block.blockerId, block.blockedId])]);
-    const speciesRule = filters.intent === "ADOPTION" ? {} : filters.intent ? { species: viewer.species } : { OR: [{ intent: "ADOPTION" as const }, { species: viewer.species }] };
+    // Relacionamentos só aparecem para animais da mesma espécie e com o mesmo
+    // objetivo. Adoção é um fluxo separado e pode aproximar espécies diferentes.
+    const speciesRule = filters.intent === "ADOPTION"
+      ? { intent: "ADOPTION" as const }
+      : filters.intent
+        ? { species: viewer.species, intent: filters.intent }
+        : { OR: [
+            { species: viewer.species, intent: viewer.intent },
+            { intent: "ADOPTION" as const },
+          ] };
     const radiusKm = Math.min(Math.max(filters.radiusKm ?? 50, 1), 200);
     const latDelta = radiusKm / 110.574;
     const lngDelta = radiusKm / Math.max(1, 111.32 * Math.cos((viewer.latitude ?? 0) * Math.PI / 180));
     const locationFilter = viewer.latitude !== null && viewer.longitude !== null
       ? { OR: [
           { latitude: { gte: viewer.latitude - latDelta, lte: viewer.latitude + latDelta }, longitude: { gte: viewer.longitude - lngDelta, lte: viewer.longitude + lngDelta } },
-          { searchCell: viewer.searchCell },
+          ...(viewer.searchCell ? [{ searchCell: viewer.searchCell }] : []),
         ] }
-      : { searchCell: viewer.searchCell };
+      : { searchCell: viewer.searchCell! };
     const where = { isActive: true, isPublic: true, ownerId: { notIn: [...excludedIds] }, AND: [locationFilter, speciesRule, ...(filters.species ? [{ species: filters.species }] : []), ...(filters.intent ? [{ intent: filters.intent }] : [])] };
     const evaluated = await this.prisma.petLike.findMany({ where: { fromPetId: selectedViewerId }, select: { toPetId: true } });
-    const candidates = await this.prisma.pet.findMany({ where: { ...where, id: { notIn: evaluated.map((entry) => entry.toPetId) } }, take: Math.min(filters.limit ?? 20, 50), ...(filters.cursor ? { cursor: { id: filters.cursor }, skip: 1 } : {}), orderBy: { createdAt: "desc" }, select: { id: true, name: true, species: true, speciesOther: true, breed: true, sex: true, size: true, birthDate: true, bio: true, intent: true, temperament: true, preferences: true, city: true, state: true, searchCell: true, latitude: true, longitude: true, coverPhotoUrl: true, coverPhotoModeration: true, healthChecklistComplete: true, healthVerificationStatus: true, veterinarianReviewAt: true } });
+    const resultLimit = Math.min(filters.limit ?? 20, 50);
+    const candidateBatchLimit = Math.min(Math.max(resultLimit * 5, 100), 500);
+    const candidates = await this.prisma.pet.findMany({ where: { ...where, id: { notIn: evaluated.map((entry) => entry.toPetId) } }, take: candidateBatchLimit, ...(filters.cursor ? { cursor: { id: filters.cursor }, skip: 1 } : {}), orderBy: { createdAt: "desc" }, select: { id: true, name: true, species: true, speciesOther: true, breed: true, sex: true, size: true, birthDate: true, bio: true, intent: true, temperament: true, preferences: true, city: true, state: true, searchCell: true, latitude: true, longitude: true, coverPhotoUrl: true, coverPhotoModeration: true, healthChecklistComplete: true, healthVerificationStatus: true, veterinarianReviewAt: true } });
     const toPublicProfile = (candidate: (typeof candidates)[number]) => {
       const { searchCell: _cell, latitude: _lat, longitude: _lng, healthChecklistComplete: _checklist, healthVerificationStatus: _verification, veterinarianReviewAt: _reviewedAt, coverPhotoModeration, coverPhotoUrl, ...profile } = candidate;
       return { ...profile, coverPhotoUrl: coverPhotoModeration === "APPROVED" ? coverPhotoUrl : null };
     };
     const distanceKm = (lat1: number, lon1: number, lat2: number, lon2: number) => { const rad = (value: number) => value * Math.PI / 180; const dLat = rad(lat2 - lat1); const dLon = rad(lon2 - lon1); const a = Math.sin(dLat / 2) ** 2 + Math.cos(rad(lat1)) * Math.cos(rad(lat2)) * Math.sin(dLon / 2) ** 2; return 6371 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); };
-    return candidates.filter((candidate) => viewer.latitude === null || viewer.longitude === null || candidate.latitude === null || candidate.longitude === null || distanceKm(viewer.latitude, viewer.longitude, candidate.latitude, candidate.longitude) <= radiusKm)
+    return candidates.filter((candidate) => {
+      if (viewer.latitude !== null && viewer.longitude !== null && candidate.latitude !== null && candidate.longitude !== null) {
+        return distanceKm(viewer.latitude, viewer.longitude, candidate.latitude, candidate.longitude) <= radiusKm;
+      }
+      return Boolean(viewer.searchCell && candidate.searchCell === viewer.searchCell);
+    })
       .map((candidate) => {
-        const compatibility = explainCompatibility(viewer, candidate);
-        const distance = viewer.latitude !== null && viewer.longitude !== null && candidate.latitude !== null && candidate.longitude !== null ? Math.max(1, Math.round(distanceKm(viewer.latitude, viewer.longitude, candidate.latitude, candidate.longitude) / 5) * 5) : null;
-        return { ...toPublicProfile(candidate), approximateDistanceKm: distance, compatibility };
-      }).sort((a, b) => (b.compatibility?.score ?? 0) - (a.compatibility?.score ?? 0));
+        const exactDistance = viewer.latitude !== null && viewer.longitude !== null && candidate.latitude !== null && candidate.longitude !== null
+          ? distanceKm(viewer.latitude, viewer.longitude, candidate.latitude, candidate.longitude)
+          : null;
+        const compatibility = explainCompatibility(viewer, { ...candidate, distanceKm: exactDistance, radiusKm });
+        const distance = exactDistance !== null ? Math.max(1, Math.round(exactDistance / 5) * 5) : null;
+        return { ...toPublicProfile(candidate), approximateDistanceKm: distance, compatibility, _sortDistance: exactDistance };
+      })
+      .sort((a, b) => (b.compatibility?.score ?? 0) - (a.compatibility?.score ?? 0) || (a._sortDistance ?? Number.POSITIVE_INFINITY) - (b._sortDistance ?? Number.POSITIVE_INFINITY))
+      .slice(0, resultLimit)
+      .map(({ _sortDistance: _distance, ...candidate }) => candidate);
   }
 
   async expressInterest(ownerId: string, toPetId: string, fromPetId: string, superMatch = false) {
     if (toPetId === fromPetId) throw new BadRequestException("Escolha outro perfil para demonstrar interesse.");
     const [fromPet, toPet] = await Promise.all([
-      this.prisma.pet.findUnique({ where: { id: fromPetId }, select: { id: true, ownerId: true, species: true, intent: true, isActive: true, owner: { select: { tutor: { select: { notificationOptIn: true } } } } } }),
+      this.prisma.pet.findUnique({ where: { id: fromPetId }, select: { id: true, ownerId: true, species: true, intent: true, isActive: true, isPublic: true, owner: { select: { tutor: { select: { notificationOptIn: true } } } } } }),
       this.prisma.pet.findUnique({ where: { id: toPetId }, select: { id: true, ownerId: true, species: true, intent: true, isPublic: true, isActive: true, owner: { select: { tutor: { select: { notificationOptIn: true } } } } } }),
     ]);
     if (!fromPet || fromPet.ownerId !== ownerId || !fromPet.isActive) throw new ForbiddenException("Escolha um animal ativo do seu perfil.");
+    if (!fromPet.isPublic) throw new BadRequestException("Publique o perfil do pet antes de demonstrar interesse.");
     if (!toPet || !toPet.isActive || !toPet.isPublic) throw new NotFoundException("Este perfil não está disponível.");
     if (toPet.ownerId === ownerId) throw new BadRequestException("Não é possível conectar animais do mesmo tutor.");
     if (fromPet.species !== toPet.species) throw new BadRequestException("A descoberta só conecta animais da mesma espécie.");
     if (toPet.intent === "ADOPTION") throw new BadRequestException("Adoção usa candidatura, sem curtida mútua.");
+    if (toPet.intent !== fromPet.intent) throw new BadRequestException("A conexão exige que os dois perfis busquem o mesmo objetivo.");
     const blocked = await this.prisma.userBlock.findFirst({ where: { OR: [{ blockerId: ownerId, blockedId: toPet.ownerId }, { blockerId: toPet.ownerId, blockedId: ownerId }] }, select: { id: true } });
     if (blocked) throw new NotFoundException("Este perfil não está disponível.");
     const breeding = fromPet.intent === "RESPONSIBLE_BREEDING" || toPet.intent === "RESPONSIBLE_BREEDING";
@@ -197,12 +222,12 @@ export class PetsService {
         select: { id: true, status: true, isSuperMatch: true, createdAt: true },
       });
       if (breeding) {
-        if (toPet.owner.tutor?.notificationOptIn) await tx.notification.create({ data: { recipientId: toPet.ownerId, actorId: ownerId, type: superMatch ? "SUPER_MATCH" : "LIKE", entityId: createdLike.id } });
+        if (toPet.owner.tutor?.notificationOptIn) await tx.notification.create({ data: { recipientId: toPet.ownerId, actorId: ownerId, type: superMatch ? "SUPER_MATCH" : "PET_LIKE", entityId: createdLike.id } });
         return { like: createdLike, matched: false, match: null };
       }
       const reverse = await tx.petLike.findUnique({ where: { fromPetId_toPetId: { fromPetId: toPetId, toPetId: fromPetId } }, select: { id: true, status: true } });
       if (!reverse || reverse.status !== "PENDING" || fromPet.ownerId === toPet.ownerId) {
-        if (toPet.owner.tutor?.notificationOptIn) await tx.notification.create({ data: { recipientId: toPet.ownerId, actorId: ownerId, type: superMatch ? "SUPER_MATCH" : "LIKE", entityId: createdLike.id } });
+        if (toPet.owner.tutor?.notificationOptIn) await tx.notification.create({ data: { recipientId: toPet.ownerId, actorId: ownerId, type: superMatch ? "SUPER_MATCH" : "PET_LIKE", entityId: createdLike.id } });
         return { like: createdLike, matched: false, match: null };
       }
       await tx.petLike.updateMany({ where: { OR: [{ fromPetId, toPetId }, { fromPetId: toPetId, toPetId: fromPetId }] }, data: { status: "MATCHED" } });
@@ -233,7 +258,39 @@ export class PetsService {
     if (!toPet || !toPet.isActive || !toPet.isPublic || toPet.ownerId === ownerId) throw new NotFoundException("Este perfil não está disponível.");
     const blocked = await this.prisma.userBlock.findFirst({ where: { OR: [{ blockerId: ownerId, blockedId: toPet.ownerId }, { blockerId: toPet.ownerId, blockedId: ownerId }] } });
     if (blocked) throw new NotFoundException("Este perfil não está disponível.");
-    return this.prisma.petLike.upsert({ where: { fromPetId_toPetId: { fromPetId, toPetId } }, create: { fromPetId, toPetId, fromOwnerId: ownerId, toOwnerId: toPet.ownerId, status: "PASSED" }, update: { status: "PASSED", isSuperMatch: false }, select: { id: true, status: true, createdAt: true } });
+    return this.prisma.$transaction(async (tx) => {
+      const passed = await tx.petLike.upsert({ where: { fromPetId_toPetId: { fromPetId, toPetId } }, create: { fromPetId, toPetId, fromOwnerId: ownerId, toOwnerId: toPet.ownerId, status: "PASSED" }, update: { status: "PASSED", isSuperMatch: false }, select: { id: true, status: true, createdAt: true } });
+      await tx.petLike.updateMany({ where: { fromPetId: toPetId, toPetId: fromPetId, status: "PENDING" }, data: { status: "PASSED", isSuperMatch: false } });
+      return passed;
+    });
+  }
+
+  async receivedInterests(ownerId: string) {
+    const blocked = await this.prisma.userBlock.findMany({ where: { OR: [{ blockerId: ownerId }, { blockedId: ownerId }] }, select: { blockerId: true, blockedId: true } });
+    const excludedOwners = [...new Set([ownerId, ...blocked.flatMap(({ blockerId, blockedId }) => [blockerId, blockedId])])];
+    const incoming = await this.prisma.petLike.findMany({
+      where: {
+        toOwnerId: ownerId,
+        status: "PENDING",
+        fromPet: { isActive: true, isPublic: true, ownerId: { notIn: excludedOwners } },
+        toPet: { isActive: true, ownerId },
+      },
+      orderBy: [{ isSuperMatch: "desc" }, { createdAt: "desc" }],
+      take: 100,
+      select: {
+        id: true,
+        isSuperMatch: true,
+        createdAt: true,
+        fromPet: { select: { id: true, name: true, species: true, speciesOther: true, breed: true, sex: true, size: true, birthDate: true, bio: true, intent: true, temperament: true, preferences: true, city: true, state: true, coverPhotoUrl: true, coverPhotoModeration: true } },
+        toPet: { select: { id: true, name: true, isPublic: true, likesSent: { select: { toPetId: true, status: true } } } },
+      },
+    });
+    return incoming
+      .filter(({ fromPet, toPet }) => !toPet.likesSent.some((like) => like.toPetId === fromPet.id && like.status === "PENDING"))
+      .map(({ fromPet, toPet, ...interest }) => {
+        const { coverPhotoModeration, coverPhotoUrl, ...profile } = fromPet;
+        return { ...interest, fromPet: { ...profile, coverPhotoUrl: coverPhotoModeration === "APPROVED" ? coverPhotoUrl : null }, toPet: { id: toPet.id, name: toPet.name, isPublic: toPet.isPublic } };
+      });
   }
 
   async undoMatch(ownerId: string, matchId: string) {

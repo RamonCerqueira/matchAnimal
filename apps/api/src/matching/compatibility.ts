@@ -10,6 +10,8 @@ export interface CompatibilityProfile {
   healthChecklistComplete?: boolean;
   healthVerificationStatus?: string;
   veterinarianReviewAt?: Date | null;
+  distanceKm?: number | null;
+  radiusKm?: number;
 }
 
 export interface CompatibilityFactor { key: string; label: string; points: number; maxPoints: number; explanation: string }
@@ -63,7 +65,16 @@ export function explainCompatibility(viewer: CompatibilityProfile, candidate: Co
   const candidateAge = ageBand(candidate.birthDate);
   add("age", "Idade", !viewerAge || !candidateAge ? Math.round(weights.age * 0.625) : viewerAge === candidateAge ? weights.age : Math.round(weights.age * 0.375), weights.age, !viewerAge || !candidateAge ? "Idade não informada nos dois perfis." : viewerAge === candidateAge ? "Faixa etária semelhante." : "Faixas etárias diferentes.");
   const sameCell = Boolean(viewer.searchCell && candidate.searchCell && viewer.searchCell === candidate.searchCell);
-  add("location", "Região aproximada", sameCell ? weights.location : viewer.searchCell && candidate.searchCell ? Math.round(weights.location * 0.25) : Math.round(weights.location * 0.5), weights.location, sameCell ? "Os perfis estão na mesma região de busca." : "A localização considera uma região ampla, nunca um endereço residencial.");
+  const hasDistance = candidate.distanceKm !== undefined && candidate.distanceKm !== null;
+  const radius = candidate.radiusKm ?? 50;
+  const distanceRatio = hasDistance ? Math.max(0, 1 - candidate.distanceKm! / radius) : null;
+  const locationPoints = distanceRatio !== null
+    ? Math.round(weights.location * distanceRatio)
+    : sameCell ? Math.round(weights.location * 0.5) : Math.round(weights.location * 0.25);
+  const locationExplanation = hasDistance
+    ? candidate.distanceKm! <= radius / 3 ? "Está na faixa mais próxima dentro do raio escolhido." : "Está dentro do raio de busca escolhido."
+    : sameCell ? "Na mesma cidade; sem GPS, a distância exata não é calculada." : "A localização é aproximada e não revela endereço residencial.";
+  add("location", "Proximidade", locationPoints, weights.location, locationExplanation);
   const temperament = overlapPoints(viewer.temperament, candidate.temperament, weights.temperament);
   add("temperament", "Comportamento", temperament, weights.temperament, temperament >= weights.temperament * 0.7 ? "Há traços de comportamento em comum." : "Os traços informados variam; apresentação gradual ajuda.");
   const preferences = overlapPoints(viewer.preferences, candidate.preferences, weights.preferences);
