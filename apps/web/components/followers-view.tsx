@@ -366,17 +366,8 @@ export function FollowersView() {
               filteredFollowers.map((item) => (
                 <article key={item.id} className="follower-card">
                   <div className="follower-card-header">
-                    <span
-                      className="follower-avatar"
-                      style={
-                        item.follower.profilePhotoUrl
-                          ? { backgroundImage: `url(${item.follower.profilePhotoUrl})` }
-                          : undefined
-                      }
-                    >
-                      {!item.follower.profilePhotoUrl && (
-                        <span>{item.follower.displayName.charAt(0).toUpperCase()}</span>
-                      )}
+                    <span className="follower-avatar">
+                      {item.follower.profilePhotoUrl ? <img crossOrigin="use-credentials" src={item.follower.profilePhotoUrl} alt="" /> : <span>{item.follower.displayName.charAt(0).toUpperCase()}</span>}
                     </span>
 
                     <div className="follower-info">
@@ -393,6 +384,7 @@ export function FollowersView() {
                         <span className="follower-pet-pill">
                           {item.targetPet.coverPhotoUrl ? (
                             <img
+                              crossOrigin="use-credentials"
                               src={item.targetPet.coverPhotoUrl}
                               alt={item.targetPet.name}
                               className="follower-pet-mini-thumb"
@@ -419,7 +411,7 @@ export function FollowersView() {
                             title={`Ver perfil de ${p.name}`}
                           >
                             {p.coverPhotoUrl ? (
-                              <img src={p.coverPhotoUrl} alt={p.name} />
+                              <img crossOrigin="use-credentials" src={p.coverPhotoUrl} alt={p.name} />
                             ) : (
                               <PawPrint size={12} />
                             )}
@@ -467,15 +459,8 @@ export function FollowersView() {
               filteredFollowing.map((pet) => (
                 <article key={pet.id} className="follower-card">
                   <div className="follower-card-header">
-                    <span
-                      className="follower-avatar follower-pet-avatar"
-                      style={
-                        pet.coverPhotoUrl
-                          ? { backgroundImage: `url(${pet.coverPhotoUrl})` }
-                          : undefined
-                      }
-                    >
-                      {!pet.coverPhotoUrl && <PawPrint size={18} />}
+                    <span className="follower-avatar follower-pet-avatar">
+                      {pet.coverPhotoUrl ? <img crossOrigin="use-credentials" src={pet.coverPhotoUrl} alt="" /> : <PawPrint size={18} />}
                     </span>
 
                     <div className="follower-info">
@@ -591,11 +576,8 @@ export function FollowersView() {
             const petFollowersCount = followers.filter((f) => f.targetPet.id === p.id).length;
             return (
               <div key={p.id} className="sidebar-pet-summary">
-                <span
-                  className="sidebar-pet-avatar"
-                  style={p.coverPhotoUrl ? { backgroundImage: `url(${p.coverPhotoUrl})` } : undefined}
-                >
-                  {!p.coverPhotoUrl && <PawPrint size={14} />}
+                <span className="sidebar-pet-avatar">
+                  {p.coverPhotoUrl ? <img crossOrigin="use-credentials" src={p.coverPhotoUrl} alt="" /> : <PawPrint size={14} />}
                 </span>
                 <div>
                   <strong>{p.name}</strong>

@@ -2,6 +2,7 @@ import { BadRequestException, ForbiddenException, Injectable, NotFoundException 
 import { ConnectionIntent, PetSpecies } from "../generated/prisma/client";
 import { PrismaService } from "../prisma/prisma.service";
 import { CreatePetDto } from "./dto/create-pet.dto";
+import { UpdatePetDto } from "./dto/update-pet.dto";
 import { explainCompatibility } from "../matching/compatibility";
 import { AdoptionApplicationDto } from "./dto/adoption-application.dto";
 import { ChatGateway } from "../chat/chat.gateway";
@@ -58,6 +59,33 @@ export class PetsService {
       return created;
     });
     return pet;
+  }
+
+  async update(ownerId: string, petId: string, input: UpdatePetDto) {
+    if (input.birthDate && new Date(input.birthDate).getTime() > Date.now()) throw new BadRequestException("A data de nascimento não pode estar no futuro.");
+    const existing = await this.prisma.pet.findFirst({ where: { id: petId, ownerId, isActive: true }, select: { id: true, species: true, speciesOther: true } });
+    if (!existing) throw new NotFoundException("Animal não encontrado.");
+    const species = input.species ?? existing.species;
+    const speciesOther = species === PetSpecies.OTHER ? input.speciesOther?.trim() ?? existing.speciesOther : null;
+    if (species === PetSpecies.OTHER && !speciesOther) throw new BadRequestException("Informe qual é a espécie do animal.");
+    return this.prisma.pet.update({
+      where: { id: petId },
+      data: {
+        ...(input.name !== undefined ? { name: input.name.trim() } : {}),
+        ...(input.species !== undefined ? { species: input.species } : {}),
+        ...(input.species !== undefined || input.speciesOther !== undefined ? { speciesOther } : {}),
+        ...(input.breed !== undefined ? { breed: input.breed.trim() || null } : {}),
+        ...(input.sex !== undefined ? { sex: input.sex } : {}),
+        ...(input.size !== undefined ? { size: input.size } : {}),
+        ...(input.birthDate !== undefined ? { birthDate: input.birthDate ? new Date(input.birthDate) : null } : {}),
+        ...(input.bio !== undefined ? { bio: input.bio?.trim() || null } : {}),
+        ...(input.intent !== undefined ? { intent: input.intent } : {}),
+        ...(input.temperament !== undefined ? { temperament: input.temperament.map((trait) => trait.trim()).filter(Boolean) } : {}),
+        ...(input.preferences !== undefined ? { preferences: input.preferences } : {}),
+        ...(input.isPublic !== undefined ? { isPublic: input.isPublic } : {}),
+      },
+      select: { id: true, name: true, species: true, speciesOther: true, breed: true, sex: true, size: true, birthDate: true, bio: true, intent: true, temperament: true, preferences: true, isPublic: true },
+    });
   }
 
   listMine(ownerId: string) {

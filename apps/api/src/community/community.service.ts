@@ -477,6 +477,11 @@ export class CommunityService implements OnModuleInit, OnModuleDestroy {
       const blocked = await this.prisma.userBlock.findFirst({ where: { OR: [{ blockerId: userId, blockedId: petPhoto.pet.ownerId }, { blockerId: petPhoto.pet.ownerId, blockedId: userId }] }, select: { id: true } });
       if (!blocked) return true;
     }
+    const profilePhoto = await this.prisma.tutorProfile.findFirst({ where: { userId: ownerId, isPublic: true, profilePhotoUrl: { endsWith: `/api/community/media/${key}` } }, select: { userId: true } });
+    if (profilePhoto) {
+      const blocked = await this.prisma.userBlock.findFirst({ where: { OR: [{ blockerId: userId, blockedId: ownerId }, { blockerId: ownerId, blockedId: userId }] }, select: { id: true } });
+      if (!blocked) return true;
+    }
     const postMedia = await this.prisma.postMedia.findFirst({ where: { storageKey: key }, select: { post: { select: { id: true } } } });
     if (postMedia) { try { await this.assertPostAccess(userId, postMedia.post.id); return true; } catch { return false; } }
     const story = await this.prisma.story.findFirst({ where: { mediaKey: key, expiresAt: { gt: new Date() } }, select: { id: true } });

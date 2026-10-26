@@ -812,6 +812,14 @@
   font-size: 18px;
   flex-shrink: 0;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.follower-avatar>img,.sidebar-pet-avatar>img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
 }
 
 .follower-pet-avatar {
@@ -1052,6 +1060,7 @@
   color: var(--forest, #315d42);
   flex-shrink: 0;
   border: 1.5px solid #dce4d8;
+  overflow: hidden;
 }
 
 .sidebar-pet-summary strong {

@@ -266,6 +266,9 @@
 .social-shell .my-pet-copy h2 a{display:inline-flex;align-items:center;min-height:44px;gap:6px}
 .social-shell .my-pet-copy p{font-size:15px;line-height:1.5;color:var(--ma-muted)}
 .social-shell .my-pet-copy>span{font-size:12px;color:var(--ma-muted);padding:7px 10px}
+.social-shell .my-pet-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px}
+.social-shell .my-pet-actions .pet-visibility-toggle{margin:0}
+.social-shell .my-pet-actions a{gap:7px}
 .social-shell .pet-visibility-toggle{min-height:44px;font-size:13px;color:var(--ma-ink);padding:10px 14px;border-radius:999px;border-color:var(--ma-line)}
 .social-shell .collection-footnote{font-size:13px;line-height:1.65;color:var(--ma-muted);align-items:flex-start}
 

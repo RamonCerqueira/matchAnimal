@@ -26,6 +26,7 @@ import {
   UserX,
 } from "lucide-react";
 import { LocationPicker, type LocationSelection } from "@/components/location-picker";
+import { preparePetPhoto } from "@/lib/pet-media";
 
 type Account = {
   id: string;
@@ -163,8 +164,9 @@ export function SettingsView() {
     setUploadingPhoto(true);
     setError("");
     try {
+      const preparedFile = await preparePetPhoto(file);
       const formData = new FormData();
-      formData.append("files", file);
+      formData.append("files", preparedFile);
 
       const res = await fetch(`${api}/api/community/media`, {
         method: "POST",
@@ -178,15 +180,40 @@ export function SettingsView() {
       }
 
       const uploadedFiles = (await res.json()) as Array<{ url: string }>;
-      if (uploadedFiles?.[0]?.url) {
-        setProfilePhotoUrl(uploadedFiles[0].url);
-      }
+      const uploadedUrl = uploadedFiles?.[0]?.url;
+      if (!uploadedUrl) throw new Error("O servidor não confirmou o salvamento da foto.");
+      await persistProfilePhoto(uploadedUrl.startsWith("/") ? `${api}${uploadedUrl}` : uploadedUrl);
     } catch (err) {
       setError((err as Error).message);
     } finally {
       setUploadingPhoto(false);
       if (fileInputRef.current) fileInputRef.current.value = "";
     }
+  }
+
+  async function persistProfilePhoto(url: string | null) {
+    const response = await fetch(`${api}/api/auth/me`, {
+      method: "PATCH",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ profilePhotoUrl: url }),
+    });
+    const result = await response.json().catch(() => ({})) as { profilePhotoUrl?: string | null; message?: string | string[] };
+    if (!response.ok) throw new Error(Array.isArray(result.message) ? result.message.join(" ") : result.message ?? "A foto foi enviada, mas não conseguimos vinculá-la ao perfil.");
+    const savedUrl = result.profilePhotoUrl ?? null;
+    setProfilePhotoUrl(savedUrl);
+    setAccount((current) => current ? { ...current, tutor: { ...current.tutor, profilePhotoUrl: savedUrl } } : current);
+    window.dispatchEvent(new CustomEvent("matchanimal:profile-updated", { detail: { profilePhotoUrl: savedUrl } }));
+    setSaved(true);
+    window.setTimeout(() => setSaved(false), 4000);
+  }
+
+  async function handleAvatarRemove() {
+    setUploadingPhoto(true);
+    setError("");
+    try { await persistProfilePhoto(null); }
+    catch (cause) { setError((cause as Error).message); }
+    finally { setUploadingPhoto(false); }
   }
 
   // Save settings
@@ -462,7 +489,7 @@ export function SettingsView() {
             <div className="settings-avatar-row">
               <div className="settings-avatar-preview">
                 {profilePhotoUrl ? (
-                  <img src={profilePhotoUrl} alt={`Foto de ${displayName || "perfil"}`} />
+                  <img crossOrigin="use-credentials" src={profilePhotoUrl} alt={`Foto de ${displayName || "perfil"}`} />
                 ) : (
                   <span>{monogram}</span>
                 )}
@@ -497,7 +524,8 @@ export function SettingsView() {
                     <button
                       type="button"
                       className="settings-avatar-remove-btn"
-                      onClick={() => setProfilePhotoUrl(null)}
+                      onClick={() => void handleAvatarRemove()}
+                      disabled={uploadingPhoto}
                     >
                       <Trash2 size={15} /> Remover foto
                     </button>
@@ -900,7 +928,7 @@ export function SettingsView() {
                     <div className="settings-blocked-profile">
                       <div className="settings-blocked-avatar">
                         {blocked.profilePhotoUrl ? (
-                          <img src={blocked.profilePhotoUrl} alt={blocked.displayName} />
+                          <img crossOrigin="use-credentials" src={blocked.profilePhotoUrl} alt={blocked.displayName} />
                         ) : (
                           blocked.displayName.charAt(0).toUpperCase()
                         )}

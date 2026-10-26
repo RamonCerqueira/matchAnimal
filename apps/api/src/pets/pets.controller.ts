@@ -7,6 +7,7 @@ import { InterestDto } from "./dto/interest.dto";
 import { AdoptionApplicationDto } from "./dto/adoption-application.dto";
 import { PetsService } from "./pets.service";
 import { UpdatePetPhotosDto } from "./dto/update-pet-photos.dto";
+import { UpdatePetDto } from "./dto/update-pet.dto";
 
 class AdoptionDecisionDto { @IsIn(["APPROVED", "DECLINED"]) status!: "APPROVED" | "DECLINED"; }
 class PetVisibilityDto { @IsBoolean() isPublic!: boolean; }
@@ -18,6 +19,9 @@ export class PetsController {
 
   @Post()
   create(@Req() request: AuthenticatedRequest, @Body() body: CreatePetDto) { return this.pets.create(request.user.sub, body); }
+
+  @Patch(":petId")
+  update(@Req() request: AuthenticatedRequest, @Param("petId") petId: string, @Body() body: UpdatePetDto) { return this.pets.update(request.user.sub, petId, body); }
 
   @Get("mine")
   mine(@Req() request: AuthenticatedRequest) { return this.pets.listMine(request.user.sub); }

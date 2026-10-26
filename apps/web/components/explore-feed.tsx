@@ -159,6 +159,7 @@ function ExplorePhoto({ source, name }: { source: string | null; name: string })
         <img
           className="explore-cover"
           src={source}
+          crossOrigin="use-credentials"
           alt={`Foto de ${name}`}
           draggable={false}
           onError={() => setFailed(true)}

@@ -32,7 +32,8 @@ const petSchema = z.object({
 
 type PetFormValues = z.infer<typeof petSchema>;
 type LocalPhoto = { file: File; url: string };
-const traits = ["Brincalhão", "Calmo", "Sociável", "Curioso", "Carinhoso", "Cheio de energia", "Afetuoso", "Independente", "Tímido", "Reservado", "Confiante", "Protetor", "Medroso", "Aventureiro", "Dócil", "Comunicativo", "Silencioso", "Adaptável", "Teimoso", "Inteligente", "Observador", "Ansioso", "Carente", "Territorial", "Paciente", "Gentil", "Agitado", "Desconfiado", "Extrovertido", "Sensível"];
+export const petTemperamentTraits = ["Brincalhão", "Calmo", "Sociável", "Curioso", "Carinhoso", "Cheio de energia", "Afetuoso", "Independente", "Tímido", "Reservado", "Confiante", "Protetor", "Medroso", "Aventureiro", "Dócil", "Comunicativo", "Silencioso", "Adaptável", "Teimoso", "Inteligente", "Observador", "Ansioso", "Carente", "Territorial", "Paciente", "Gentil", "Agitado", "Desconfiado", "Extrovertido", "Sensível"];
+const traits = petTemperamentTraits;
 const api = apiBaseUrl;
 const draftKey = "matchanimal:new-pet:draft:v1";
 const steps = ["Informações", "Fotos", "Personalidade", "Publicação"];
@@ -67,7 +68,7 @@ export function PetForm() {
   const { species, intent } = values;
   const temperament = values.temperament ?? [];
   const errors = form.formState.errors;
-  const busy = preparing || form.formState.isSubmitting;
+  const busy = preparing || form.formState.isSubmitting || uploadProgress !== null;
 
   function addCustomTrait() {
     const trait = customTrait.trim().replace(/\s+/g, " ");
@@ -141,8 +142,24 @@ export function PetForm() {
   async function nextStep() {
     if (busy) return;
     setError(""); setNotice("");
-    const valid = await form.trigger(stepFields[step], { shouldFocus: true });
-    if (valid) { void petFeedback("tap"); setStep((current) => Math.min(3, current + 1)); }
+    const fields = stepFields[step] ?? [];
+    const valid = fields.length ? await form.trigger(fields, { shouldFocus: true }) : true;
+    if (!valid) { setError("Confira os campos desta etapa antes de continuar."); return; }
+    if (step === 1 && photos.length && !uploadedPhotos) {
+      setUploadProgress(0);
+      try {
+        const uploaded = await uploadPetPhotos(photos.map((photo) => photo.file), setUploadProgress, api);
+        setUploadedPhotos(uploaded);
+        setNotice("Fotos enviadas ao servidor. Você pode continuar montando o perfil.");
+      } catch (failure) {
+        setError(failure instanceof Error ? failure.message : "Não foi possível enviar as fotos. Tente novamente.");
+        setUploadProgress(null);
+        return;
+      }
+      setUploadProgress(null);
+    }
+    void petFeedback("tap");
+    setStep(step + 1);
   }
 
   function invalidSubmit(invalid: FieldErrors<PetFormValues>) {
@@ -197,7 +214,7 @@ export function PetForm() {
       </fieldset>
 
       {preparing && <p className="pet-processing" role="status"><LoaderCircle className="form-spinner" size={18} aria-hidden="true" /> Preparando e otimizando suas fotos…</p>}
-      {uploadProgress !== null && <div className="pet-upload-progress" role="status"><span>{uploadProgress === 100 ? "Fotos enviadas. Salvando o perfil…" : `Enviando fotos… ${uploadProgress}%`}</span><progress aria-label="Envio das fotos" value={uploadProgress} max={100} /></div>}
+      {uploadProgress !== null && <div className="pet-upload-progress" role="status"><span>{uploadProgress === 100 ? step === 1 ? "Fotos enviadas. Abrindo a próxima etapa…" : "Fotos enviadas. Salvando o perfil…" : `Enviando fotos… ${uploadProgress}%`}</span><progress aria-label="Envio das fotos" value={uploadProgress} max={100} /></div>}
       {notice && <div className="inline-success" role="status"><Check size={18} aria-hidden="true" />{notice}</div>}{error && <div className="form-alert" role="alert">{error}</div>}
       <div className="form-submit-row pet-form-actions">{step > 0 ? <button className="pet-step-back" type="button" disabled={busy} onClick={() => { setError(""); setNotice(""); setStep((current) => current - 1); }}><ArrowLeft size={18} aria-hidden="true" /> Voltar</button> : <Link href="/animais">Cancelar</Link>}{step < 3 ? <button type="button" disabled={busy} onClick={() => void nextStep()}>Continuar <ArrowRight size={18} aria-hidden="true" /></button> : <button type="submit" disabled={busy}>{form.formState.isSubmitting ? <LoaderCircle className="form-spinner" size={18} aria-hidden="true" /> : <Sparkles size={18} aria-hidden="true" />}{form.formState.isSubmitting ? "Salvando…" : "Criar perfil"}</button>}</div>
     </form></div><aside className="pet-preview-rail"><div className="pet-preview-card"><span className="preview-kicker">SEU PERFIL EM CONSTRUÇÃO</span><div className="preview-photo" style={photo ? { backgroundImage: `url(${photo})` } : undefined}>{!photo && <PawPrint size={34} aria-hidden="true" />}</div><div className="preview-name">{values.name || "Nome do pet"}<span>{values.breed || "Espécie · Raça"}</span></div><div className="preview-tags">{temperament.slice(0, 3).map((tag) => <span key={tag}>{tag}</span>)}{!temperament.length && <span>Personalidade</span>}</div><div className="preview-distance"><MapPin size={16} aria-hidden="true" /> <span>Sua região aproximada</span></div></div><div className="privacy-hint"><ShieldCheck size={20} aria-hidden="true" /><div><strong>Você está no controle</strong><p>O perfil só aparece na descoberta quando você ativa a visibilidade.</p></div></div></aside>

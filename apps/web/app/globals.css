@@ -5255,6 +5255,14 @@ button {
     position: relative
 }
 
+.my-pet-photo>img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
 .my-pet-photo>svg {
     opacity: .8
 }
@@ -5461,6 +5469,13 @@ button {
     border-radius: 50%;
     background: #edf2e9 center/cover no-repeat;
     color: #82947d
+}
+
+.chat-avatar>img {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-fit: cover
 }
 
 .chat-avatar[style*=url] {
@@ -5917,6 +5932,14 @@ button {
     overflow: hidden
 }
 
+.match-pet-image>img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
 .match-pet-image[style*=url] {
     color: white
 }
@@ -5926,6 +5949,7 @@ button {
 }
 
 .match-pet-image>span {
+    z-index: 1;
     font-size: 8px;
     font-weight: 700;
     text-shadow: 0 1px 4px #273329
